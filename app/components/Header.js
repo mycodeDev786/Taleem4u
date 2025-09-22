@@ -2,6 +2,7 @@
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -95,7 +96,7 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
         {/* Logo and Site Title */}
         <div className="flex items-center space-x-2">
-          <a href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src={assets.logo}
               alt="Taleem4u Logo"
@@ -103,7 +104,7 @@ export default function Header() {
               height={40}
               className="object-contain rounded-full shadow-md"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -129,24 +130,24 @@ export default function Header() {
                   onMouseLeave={() => setDropdownOpen(null)}
                 >
                   {link.dropdown.map((sub) => (
-                    <a
+                    <Link
                       key={sub.href}
                       href={sub.href}
                       className="block px-4 py-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
                     >
                       {sub.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
             ) : (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-gray-300 hover:text-teal-400 transition-colors duration-200 p-2 rounded-lg"
               >
                 {link.label}
-              </a>
+              </Link>
             )
           )}
         </nav>
@@ -203,27 +204,27 @@ export default function Header() {
                   {dropdownOpen === idx && (
                     <div className="mt-2 ml-4 space-y-2">
                       {link.dropdown.map((sub) => (
-                        <a
+                        <Link
                           key={sub.href}
                           href={sub.href}
                           onClick={() => setMenuOpen(false)}
                           className="block text-gray-300 hover:text-teal-400 transition-colors p-2 rounded-md"
                         >
                           {sub.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className="block text-white hover:text-teal-400 transition-colors p-2 rounded-md"
                 >
                   {link.label}
-                </a>
+                </Link>
               )
             )}
           </nav>

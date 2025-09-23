@@ -73,18 +73,86 @@ export default function Header() {
 
   // Define navigation links and their dropdowns
   const navLinks = [
+    // 🎓 Academics
+    {
+      label: "Academics",
+      dropdown: [
+        { href: "/books/matric", label: "Matric Books" },
+        { href: "/books/inter", label: "Intermediate Books" },
+        { href: "/books/university", label: "University Notes" },
+        { href: "/books/css", label: "CSS Notes" },
+      ],
+    },
+    {
+      label: "Past Papers",
+      dropdown: [
+        { href: "/past-papers/matric", label: "Matric Past Papers" },
+        { href: "/past-papers/inter", label: "Intermediate Past Papers" },
+        { href: "/past-papers/university", label: "University Past Papers" },
+        { href: "/past-papers/css", label: "CSS Past Papers" },
+      ],
+    },
     {
       label: "Admissions & Scholarships",
       dropdown: [
         { href: "/admissions", label: "Admissions" },
         { href: "/scholarships", label: "Scholarships" },
+        { href: "/foreign-scholarships", label: "Foreign Scholarships" },
+        { href: "/exchange-programs", label: "Exchange Programs" },
       ],
     },
-    { href: "/books", label: "Books & Notes" },
-    { href: "/jobs", label: "Jobs" },
-    { href: "/ai-tools", label: "AI Tools" },
-    { href: "/css-pms", label: "CSS & PMS" },
-    { href: "/mdcat", label: "MDCAT" },
+
+    // 🧪 Test Prep
+    {
+      label: "Test Preparation",
+      dropdown: [
+        { href: "/prep/mcat", label: "MCAT" },
+        { href: "/prep/ecat", label: "ECAT" },
+        { href: "/prep/ielts", label: "IELTS" },
+        { href: "/prep/sat", label: "SAT" },
+      ],
+    },
+
+    // {
+    //   label: "CSS & PMS",
+    //   dropdown: [
+    //     { href: "/css-pms/syllabus", label: "Syllabus" },
+    //     { href: "/css-pms/notes", label: "Notes" },
+    //     { href: "/css-pms/papers", label: "Past Papers" },
+    //     { href: "/css-pms/guides", label: "Guides" },
+    //   ],
+    // },
+
+    // 💼 Career
+    {
+      label: "Jobs",
+      dropdown: [
+        { href: "/jobs/government", label: "Government Jobs" },
+        { href: "/jobs/private", label: "Private Jobs" },
+        { href: "/jobs/internships", label: "Internships" },
+        { href: "/jobs/abroad", label: "Jobs Abroad" },
+      ],
+    },
+    // {
+    //   label: "Career Guidance",
+    //   dropdown: [
+    //     { href: "/career/roadmaps", label: "Career Roadmaps" },
+    //     { href: "/career/counseling", label: "Career Counseling" },
+    //     { href: "/career/skills", label: "Skill Development" },
+    //     { href: "/career/freelancing", label: "Freelancing" },
+    //   ],
+    // },
+    {
+      label: "AI Tools",
+      dropdown: [
+        { href: "/ai-tools/study", label: "Study Tools" },
+        { href: "/ai-tools/writing", label: "Writing Tools" },
+        { href: "/ai-tools/coding", label: "Coding Tools" },
+        { href: "/ai-tools/career", label: "Career Tools" },
+      ],
+    },
+
+    // 📢 Info
   ];
 
   const toggleDropdown = (idx) => {

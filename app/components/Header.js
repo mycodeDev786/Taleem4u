@@ -83,7 +83,7 @@ export default function Header() {
           href: "/books/primary-elementary",
           label: "Primary and Elementary Books",
         },
-        { href: "/books/css", label: "CSS Notes" },
+        { href: "/books/notes", label: " Notes & KeyBooks" },
       ],
     },
     {
@@ -109,8 +109,9 @@ export default function Header() {
     {
       label: "Test Preparation",
       dropdown: [
-        { href: "/prep/mcat", label: "MCAT" },
-        { href: "/prep/ecat", label: "ECAT" },
+        { href: "/prep/mdcat", label: "MDCAT" },
+        { href: "/prep/ppsc", label: "PPSC" },
+        { href: "/prep/fpsc", label: "FPSC" },
         { href: "/prep/ielts", label: "IELTS" },
         { href: "/prep/sat", label: "SAT" },
       ],
@@ -148,10 +149,9 @@ export default function Header() {
     {
       label: "AI Tools",
       dropdown: [
-        { href: "/ai-tools/study", label: "Study Tools" },
-        { href: "/ai-tools/writing", label: "Writing Tools" },
-        { href: "/ai-tools/coding", label: "Coding Tools" },
-        { href: "/ai-tools/career", label: "Career Tools" },
+        { href: "/ai-tools/age-calculator", label: "Age Calculator" },
+        { href: "/ai-tools/unit-converter", label: "Unit Converter" },
+        { href: "/ai-tools/university-finder", label: "University Finder" },
       ],
     },
 

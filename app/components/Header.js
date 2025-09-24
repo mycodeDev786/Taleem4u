@@ -79,7 +79,10 @@ export default function Header() {
       dropdown: [
         { href: "/books/matric", label: "Matric Books" },
         { href: "/books/inter", label: "Intermediate Books" },
-        { href: "/books/university", label: "University Notes" },
+        {
+          href: "/books/primary-elementary",
+          label: "Primary and Elementary Books",
+        },
         { href: "/books/css", label: "CSS Notes" },
       ],
     },
@@ -88,7 +91,7 @@ export default function Header() {
       dropdown: [
         { href: "/past-papers/matric", label: "Matric Past Papers" },
         { href: "/past-papers/inter", label: "Intermediate Past Papers" },
-        { href: "/past-papers/university", label: "University Past Papers" },
+        { href: "/past-papers/ppsc-fpsc", label: "PPSC & FPSC Past Papers" },
         { href: "/past-papers/css", label: "CSS Past Papers" },
       ],
     },

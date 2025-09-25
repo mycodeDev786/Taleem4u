@@ -8,7 +8,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
 
-  // Replaced external icons with inline SVG for self-contained code.
+  // Inline SVGs
   const MenuIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -71,23 +71,21 @@ export default function Header() {
     </svg>
   );
 
-  // Define navigation links and their dropdowns
+  // Navigation with parent hrefs
   const navLinks = [
-    // 🎓 Academics
     {
-      label: "Academics",
+      label: "Books and Notes",
+      href: "/books",
       dropdown: [
         { href: "/books/matric", label: "Matric Books" },
         { href: "/books/inter", label: "Intermediate Books" },
-        {
-          href: "/books/primary-elementary",
-          label: "Primary and Elementary Books",
-        },
-        { href: "/books/notes", label: " Notes & KeyBooks" },
+        { href: "/books/primary-elementary", label: "Primary & Elementary" },
+        { href: "/books/notes", label: "Notes & KeyBooks" },
       ],
     },
     {
       label: "Past Papers",
+      href: "/past-papers",
       dropdown: [
         { href: "/past-papers/matric", label: "Matric Past Papers" },
         { href: "/past-papers/inter", label: "Intermediate Past Papers" },
@@ -97,6 +95,7 @@ export default function Header() {
     },
     {
       label: "Admissions & Scholarships",
+      href: "/scholarships",
       dropdown: [
         { href: "/admissions", label: "Admissions" },
         { href: "/scholarships", label: "Scholarships" },
@@ -104,10 +103,9 @@ export default function Header() {
         { href: "/exchange-programs", label: "Exchange Programs" },
       ],
     },
-
-    // 🧪 Test Prep
     {
       label: "Test Preparation",
+      href: "/test-preparation",
       dropdown: [
         { href: "/prep/mdcat", label: "MDCAT" },
         { href: "/prep/ppsc", label: "PPSC" },
@@ -116,20 +114,9 @@ export default function Header() {
         { href: "/prep/sat", label: "SAT" },
       ],
     },
-
-    // {
-    //   label: "CSS & PMS",
-    //   dropdown: [
-    //     { href: "/css-pms/syllabus", label: "Syllabus" },
-    //     { href: "/css-pms/notes", label: "Notes" },
-    //     { href: "/css-pms/papers", label: "Past Papers" },
-    //     { href: "/css-pms/guides", label: "Guides" },
-    //   ],
-    // },
-
-    // 💼 Career
     {
       label: "Jobs",
+      href: "/jobs",
       dropdown: [
         { href: "/jobs/government", label: "Government Jobs" },
         { href: "/jobs/private", label: "Private Jobs" },
@@ -137,25 +124,15 @@ export default function Header() {
         { href: "/jobs/abroad", label: "Jobs Abroad" },
       ],
     },
-    // {
-    //   label: "Career Guidance",
-    //   dropdown: [
-    //     { href: "/career/roadmaps", label: "Career Roadmaps" },
-    //     { href: "/career/counseling", label: "Career Counseling" },
-    //     { href: "/career/skills", label: "Skill Development" },
-    //     { href: "/career/freelancing", label: "Freelancing" },
-    //   ],
-    // },
     {
       label: "AI Tools",
+      href: "/ai-tools",
       dropdown: [
         { href: "/ai-tools/age-calculator", label: "Age Calculator" },
         { href: "/ai-tools/unit-converter", label: "Unit Converter" },
         { href: "/ai-tools/university-finder", label: "University Finder" },
       ],
     },
-
-    // 📢 Info
   ];
 
   const toggleDropdown = (idx) => {
@@ -165,7 +142,7 @@ export default function Header() {
   return (
     <header className="bg-purple-900 shadow-xl sticky top-0 z-50 rounded-b-xl">
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-        {/* Logo and Site Title */}
+        {/* Logo */}
         <div className="flex items-center space-x-2">
           <Link href="/" className="flex items-center space-x-2">
             <Image
@@ -179,26 +156,42 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 font-medium relative text-sm">
-          {navLinks.map((link, idx) =>
-            link.dropdown ? (
-              <div key={idx} className="relative group">
-                <button
-                  className="flex items-center space-x-1 text-gray-300 hover:text-teal-400 transition-colors duration-200 p-2 rounded-lg"
-                  onMouseEnter={() => setDropdownOpen(idx)}
-                  onMouseLeave={() => setDropdownOpen(null)}
+        <nav className="hidden md:flex items-center gap-4 space-x-6 font-medium relative text-sm">
+          {navLinks.map((link, idx) => (
+            <div
+              key={idx}
+              className="relative group"
+              onMouseEnter={() => setDropdownOpen(idx)}
+              onMouseLeave={() => setDropdownOpen(null)}
+            >
+              <div className="flex items-center space-x-1">
+                {/* Parent clickable link */}
+                <Link
+                  href={link.href}
+                  className="text-gray-300 hover:text-teal-400 transition-colors duration-200  rounded-lg"
                 >
-                  <span>{link.label}</span>
-                  <ChevronDownIcon isOpen={dropdownOpen === idx} />
-                </button>
+                  {link.label}
+                </Link>
+
+                {/* Dropdown toggle (optional click) */}
+                {link.dropdown && (
+                  <button
+                    onClick={() => toggleDropdown(idx)}
+                    className="text-gray-300 hover:text-teal-400 transition-colors duration-200 py-2 rounded-lg"
+                  >
+                    <ChevronDownIcon isOpen={dropdownOpen === idx} />
+                  </button>
+                )}
+              </div>
+
+              {/* Dropdown */}
+              {link.dropdown && (
                 <div
                   className={`absolute left-0 mt-2 w-48 bg-white shadow-xl rounded-md ring-1 ring-gray-200 overflow-hidden transition-all duration-300 ease-in-out origin-top ${
                     dropdownOpen === idx
                       ? "scale-y-100 opacity-100 visible"
                       : "scale-y-0 opacity-0 invisible"
                   }`}
-                  onMouseEnter={() => setDropdownOpen(idx)}
-                  onMouseLeave={() => setDropdownOpen(null)}
                 >
                   {link.dropdown.map((sub) => (
                     <Link
@@ -210,20 +203,12 @@ export default function Header() {
                     </Link>
                   ))}
                 </div>
-              </div>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-300 hover:text-teal-400 transition-colors duration-200 p-2 rounded-lg"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+              )}
+            </div>
+          ))}
         </nav>
 
-        {/* Desktop Search Bar */}
+        {/* Desktop Search */}
         <div className="hidden md:flex items-center space-x-2">
           <div className="relative">
             <input
@@ -250,7 +235,7 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden bg-gray-800 shadow-xl py-4 border-t border-gray-700 animate-slide-down">
           <nav className="flex flex-col space-y-4 px-6 font-medium">
-            {/* Mobile Search Bar */}
+            {/* Mobile Search */}
             <div className="relative mb-4">
               <input
                 type="text"
@@ -262,42 +247,46 @@ export default function Header() {
               </span>
             </div>
 
-            {navLinks.map((link, idx) =>
-              link.dropdown ? (
-                <div key={idx}>
-                  <button
-                    onClick={() => toggleDropdown(idx)}
-                    className="flex items-center justify-between w-full text-white hover:text-teal-400 transition-colors p-2 rounded-md"
+            {navLinks.map((link, idx) => (
+              <div key={idx}>
+                <div className="flex items-center justify-between">
+                  {/* Parent clickable link */}
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-white hover:text-teal-400 transition-colors p-2 rounded-md"
                   >
                     {link.label}
-                    <ChevronDownIcon isOpen={dropdownOpen === idx} />
-                  </button>
-                  {dropdownOpen === idx && (
-                    <div className="mt-2 ml-4 space-y-2">
-                      {link.dropdown.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="block text-gray-300 hover:text-teal-400 transition-colors p-2 rounded-md"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
+                  </Link>
+
+                  {/* Dropdown toggle */}
+                  {link.dropdown && (
+                    <button
+                      onClick={() => toggleDropdown(idx)}
+                      className="text-gray-300 hover:text-teal-400 transition-colors p-2 rounded-md"
+                    >
+                      <ChevronDownIcon isOpen={dropdownOpen === idx} />
+                    </button>
                   )}
                 </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block text-white hover:text-teal-400 transition-colors p-2 rounded-md"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+
+                {/* Dropdown */}
+                {dropdownOpen === idx && link.dropdown && (
+                  <div className="mt-2 ml-4 space-y-2">
+                    {link.dropdown.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block text-gray-300 hover:text-teal-400 transition-colors p-2 rounded-md"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </nav>
         </div>
       )}

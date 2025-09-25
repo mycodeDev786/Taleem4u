@@ -26,7 +26,8 @@ export default function NotesPage() {
     },
     {
       title: "Intermediate Notes",
-      description: "FSc & FA notes for 11th & 12th grade students.",
+      description:
+        "FSc & FA, ICS , I.COM  notes for 11th & 12th grade students.",
       link: "/books/inter",
       icon: <GraduationCap className="w-8 h-8 text-green-500" />,
     },

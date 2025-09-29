@@ -1,3 +1,5 @@
+import { assets } from "@/assets/assets";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -14,31 +16,31 @@ const booksCategories = [
     title: "Matric Books",
     description: "All subjects books and notes for 9th & 10th classes.",
     link: "/books/matric",
-    image: "https://source.unsplash.com/400x250/?books,study",
+    image: assets.matric_books,
   },
   {
     title: "Intermediate Books",
     description: "Books & notes for FSc, FA, ICS, and ICom students.",
     link: "/books/intermediate",
-    image: "https://source.unsplash.com/400x250/?library,education",
+    image: assets.ninth_phy,
   },
   {
     title: "Primary & Elementary",
     description: "ECE, KG, Nursery to 8th class books & resources.",
     link: "/books/primary-elementary",
-    image: "https://source.unsplash.com/400x250/?kids,school",
+    image: assets.hero,
   },
   {
     title: "Notes",
     description: "Prepared notes for quick revision and exam preparation.",
     link: "/books/notes",
-    image: "https://source.unsplash.com/400x250/?notes,writing",
+    image: assets.ninth_phy,
   },
   {
     title: "CSS Books",
     description: "CSS exam preparation books, past papers, and guides.",
     link: "/books/css",
-    image: "https://source.unsplash.com/400x250/?exam,books",
+    image: assets.logo,
   },
 ];
 
@@ -56,9 +58,11 @@ export default function BooksPage() {
               key={idx}
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col"
             >
-              <img
+              <Image
                 src={category.image}
                 alt={category.title}
+                width={400}
+                height={250}
                 className="h-40 w-full object-cover"
               />
               <div className="p-6 flex flex-col flex-grow">

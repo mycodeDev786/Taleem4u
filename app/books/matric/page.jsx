@@ -6,11 +6,12 @@ const ninthBooks = [
   { title: "Physics 9th", img: assets.ninth_phy, slug: "physics-9th" },
   {
     title: "Chemistry 9th",
-    img: "/books/chemistry9.jpg",
+    img: assets.ninth_chem,
     slug: "chemistry-9th",
   },
-  { title: "Biology 9th", img: "/books/biology9.jpg", slug: "biology-9th" },
-  { title: "Math 9th", img: "/books/math9.jpg", slug: "math-9th" },
+  { title: "Biology 9th", img: assets.ninth_bio, slug: "biology-9th" },
+  { title: "Math 9th", img: assets.ninth_math, slug: "math-9th" },
+  { title: "9th English ", img: assets.ninth_eng, slug: "9th-english" },
 ];
 
 const tenthBooks = [

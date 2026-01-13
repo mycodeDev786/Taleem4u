@@ -15,14 +15,15 @@ const ninthBooks = [
 ];
 
 const tenthBooks = [
-  { title: "Physics 10th", img: "/books/physics10.jpg", slug: "physics-10th" },
+  { title: "Physics 10th", img: assets.tenth_phy, slug: "physics-10th" },
   {
     title: "Chemistry 10th",
-    img: "/books/chemistry10.jpg",
+    img: assets.tenth_chem,
     slug: "chemistry-10th",
   },
-  { title: "Biology 10th", img: "/books/biology10.jpg", slug: "biology-10th" },
-  { title: "Math 10th", img: "/books/math10.jpg", slug: "math-10th" },
+  { title: "Biology 10th", img: assets.tenth_bio, slug: "biology-10th" },
+  { title: "Math 10th", img: assets.tenth_math, slug: "math-10th" },
+  { title: "English 10th", img: assets.tenth_eng, slug: "english-10th" },
 ];
 
 export const metadata = {

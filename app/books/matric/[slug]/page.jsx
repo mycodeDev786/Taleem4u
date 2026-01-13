@@ -1,10 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import { books } from "../../../constants/9th";
 
+/* ✅ Optional but HIGHLY recommended for SEO + SSG */
+export async function generateStaticParams() {
+  return books.map((book) => ({
+    slug: book.slug,
+  }));
+}
+
+/* ✅ FIXED: params must be awaited */
 export async function generateMetadata({ params }) {
-  const book = books.find((b) => b.slug === params.slug);
+  const { slug } = await params;
+
+  const book = books.find((b) => b.slug === slug);
 
   if (!book) {
     return {
@@ -25,7 +34,7 @@ export async function generateMetadata({ params }) {
       url: `https://www.taleem4u.com/books/matric/${book.slug}`,
       images: [
         {
-          url: book.imgUrl, // ✅ always string
+          url: book.imgUrl, // must be string
           width: 800,
           height: 600,
           alt: book.title,
@@ -35,11 +44,18 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BookDetail({ params }) {
-  const book = books.find((b) => b.slug === params.slug);
+/* ✅ FIXED: async page + await params */
+export default async function BookDetail({ params }) {
+  const { slug } = await params;
+
+  const book = books.find((b) => b.slug === slug);
 
   if (!book) {
-    return <div className="p-12 text-center text-red-600">Book not found</div>;
+    return (
+      <div className="p-12 text-center text-red-600 text-xl">
+        Book not found
+      </div>
+    );
   }
 
   return (
@@ -57,28 +73,27 @@ export default function BookDetail({ params }) {
           width={300}
           height={400}
           className="rounded-lg shadow-md"
+          priority
         />
       </div>
 
-      {/* SEO friendly text */}
+      {/* SEO text */}
       <p className="text-gray-700 text-lg leading-relaxed mb-8 text-center">
-        {book.description} This {book.title} is available in high quality PDF
-        format so that students can easily download and study offline. Taleem4u
-        provides free access to{" "}
-        <strong>Matric (9th & 10th class) textbooks</strong> including Physics,
-        Chemistry, Biology, and Mathematics. Students can use these digital
-        books for exam preparation, revision, and self-study.
+        {book.description} This {book.title} is available in high-quality PDF
+        format so students can download and study offline. Taleem4u provides
+        free access to <strong>Matric (9th & 10th class) textbooks</strong>{" "}
+        including Physics, Chemistry, Biology, and Mathematics.
       </p>
 
-      {/* Google Drive Viewer (replace with your real Drive file link) */}
+      {/* Google Drive Viewer */}
       <div className="mb-8">
         <iframe
-          src={`https://drive.google.com/file/d/14TEL4poDp5vvAP7JZ3dYXJ4U_9fPexm3/view`}
+          src={book.preview}
           width="100%"
           height="500"
-          allow="autoplay"
           className="rounded-lg shadow-md"
-        ></iframe>
+          allow="autoplay"
+        />
       </div>
 
       {/* Download Button */}

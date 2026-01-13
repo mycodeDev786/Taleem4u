@@ -7,7 +7,11 @@ export const books = [
     img: assets.ninth_phy,
     // But for SEO, keep a separate string path
     imgUrl: "/books/9th/9th_phy.png",
-    link: "/downloads/physics9.pdf",
+    link: "https://drive.google.com/uc?id=14TEL4poDp5vvAP7JZ3dYXJ4U_9fPexm3&export=download",
+
+    // ✅ iframe preview
+    preview:
+      "https://drive.google.com/file/d/14TEL4poDp5vvAP7JZ3dYXJ4U_9fPexm3/preview",
     slug: "physics-9th",
     description:
       "Download Physics 9th class book in PDF format for Matric students.",
@@ -16,7 +20,12 @@ export const books = [
     title: "Chemistry 9th",
     img: assets.ninth_chem, // already string
     imgUrl: "/books/chemistry9.jpg",
-    link: "/downloads/chemistry9.pdf",
+    link: "https://drive.google.com/uc?id=1OY1Unpm8VkLCGQfbLFrE8wLn3fzXmZpc&export=download",
+
+    // ✅ iframe preview
+    preview:
+      "https://drive.google.com/file/d/1OY1Unpm8VkLCGQfbLFrE8wLn3fzXmZpc/preview",
+
     slug: "chemistry-9th",
     description:
       "Download Chemistry 9th class book in PDF format for Matric students.",
@@ -25,7 +34,11 @@ export const books = [
     title: "Biology 9th",
     img: assets.ninth_bio, // already string
     imgUrl: "/books/bio9.jpg",
-    link: "/downloads/chemistry9.pdf",
+    link: "https://drive.google.com/uc?id=1rH5qC3FM12nPcH1zIVbm25tMKWxMv-3P&export=download",
+
+    // ✅ iframe preview
+    preview:
+      "https://drive.google.com/file/d/1rH5qC3FM12nPcH1zIVbm25tMKWxMv-3P/preview",
     slug: "biology-9th",
     description:
       "Download Biology 9th class book in PDF format for Matric students.",

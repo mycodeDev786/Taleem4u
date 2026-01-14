@@ -1,0 +1,103 @@
+import Image from "next/image";
+import Link from "next/link";
+import { books } from "../../../constants/inter";
+
+/* ✅ SSG */
+export async function generateStaticParams() {
+  return books.map((book) => ({
+    slug: book.slug,
+  }));
+}
+
+/* ✅ SEO Metadata */
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const book = books.find((b) => b.slug === slug);
+
+  if (!book) {
+    return {
+      title: "Book Not Found - Taleem4u",
+      description: "Requested book could not be found.",
+    };
+  }
+
+  return {
+    title: `${book.title} PDF Download - Taleem4u`,
+    description: book.description,
+    alternates: {
+      canonical: `https://www.taleem4u.com/books/inter/${book.slug}`,
+    },
+    openGraph: {
+      title: `${book.title} PDF Download`,
+      description: book.description,
+      url: `https://www.taleem4u.com/books/inter/${book.slug}`,
+      images: [
+        {
+          url: book.imgUrl,
+          width: 800,
+          height: 600,
+          alt: book.title,
+        },
+      ],
+    },
+  };
+}
+
+/* ✅ Page */
+export default async function BookDetail({ params }) {
+  const { slug } = await params;
+  const book = books.find((b) => b.slug === slug);
+
+  if (!book) {
+    return (
+      <div className="p-12 text-center text-red-600 text-xl">
+        Book not found
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto px-6 py-12">
+      <h1 className="text-3xl font-bold mb-6 text-center text-indigo-700">
+        {book.title} – Free PDF Download
+      </h1>
+
+      <div className="flex justify-center mb-6">
+        <Image
+          src={book.img}
+          alt={book.title}
+          width={300}
+          height={400}
+          className="rounded-lg shadow-md"
+          priority
+        />
+      </div>
+
+      <p className="text-gray-700 text-lg leading-relaxed mb-8 text-center">
+        {book.description} This {book.title} is available in high-quality PDF
+        format for Intermediate students. Taleem4u provides free access to
+        <strong> FSc Part 1 & Part 2 textbooks</strong>.
+      </p>
+
+      <div className="mb-8">
+        <iframe
+          src={book.preview}
+          width="100%"
+          height="500"
+          className="rounded-lg shadow-md"
+          allow="autoplay"
+        />
+      </div>
+
+      <div className="text-center">
+        <Link
+          href={book.link}
+          className="inline-block px-6 py-3 bg-green-600 text-white text-lg font-medium rounded-lg hover:bg-green-700 transition"
+          download
+        >
+          📥 Download {book.title}
+        </Link>
+      </div>
+    </div>
+  );
+}

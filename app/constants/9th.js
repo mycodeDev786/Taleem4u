@@ -52,5 +52,20 @@ export const books = [
     description:
       "Download Math 9th class book in PDF format for Matric students.",
   },
+  {
+    title: "Physics 10th",
+    // For <Image />, we can still use the imported asset
+    img: assets.ninth_phy,
+    // But for SEO, keep a separate string path
+    imgUrl: "/books/10th/10th_phy.png",
+    link: "https://drive.google.com/uc?id=14TEL4poDp5vvAP7JZ3dYXJ4U_9fPexm3&export=download",
+
+    // ✅ iframe preview
+    preview:
+      "https://drive.google.com/file/d/14TEL4poDp5vvAP7JZ3dYXJ4U_9fPexm3/preview",
+    slug: "physics-10th",
+    description:
+      "Download Physics 10th class book in PDF format for Matric students.",
+  },
   // ... repeat for others
 ];

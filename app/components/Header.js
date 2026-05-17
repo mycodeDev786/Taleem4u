@@ -133,6 +133,15 @@ export default function Header() {
         { href: "/ai-tools/university-finder", label: "University Finder" },
       ],
     },
+    {
+      label: "About",
+      href: "/about",
+      dropdown: [
+        { href: "/about", label: "About Us" },
+        { href: "/blog", label: "Blog" },
+        { href: "/contact", label: "Contact Us" },
+      ],
+    },
   ];
 
   const toggleDropdown = (idx) => {

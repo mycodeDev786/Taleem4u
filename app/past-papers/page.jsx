@@ -1,117 +1,120 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Past Papers Pakistan – Matric, Inter, PPSC, FPSC, CSS, NTS | Taleem4u",
+  title: "Past Papers Pakistan | Matric, Inter, CSS, PPSC, MDCAT | Taleem4u",
   description:
-    "Download solved and unsolved past papers for Matric, Intermediate, CSS, PPSC, FPSC, NTS, and MDCAT exams in Pakistan. Free PDF downloads and year-wise paper collections.",
-  alternates: { canonical: "https://www.taleem4u.com/past-papers" },
+    "Download free past papers for Matric, Intermediate, CSS, PPSC, MDCAT, NTS and more. Solve previous year questions to boost your exam score. All boards and years covered.",
+  keywords: "past papers pakistan, matric past papers, inter past papers, CSS past papers, MDCAT past papers",
+  alternates: { canonical: "https://taleem4u.com/past-papers" },
 };
 
-export default function PastPapersPage() {
+export default function PastPapers() {
   const categories = [
-    { name: "Matric (9th & 10th)", link: "/past-papers/matric", desc: "Board past papers for 9th and 10th class including all Punjab boards, Karachi board, and Federal Board. Subject-wise collections with solved keys.", icon: "📚" },
-    { name: "Intermediate (11th & 12th)", link: "/past-papers/inter", desc: "FSc Part 1 and Part 2 past papers for all major boards. Pre-Medical, Pre-Engineering, ICS, FA, and ICom groups.", icon: "🎓" },
-    { name: "CSS Past Papers", link: "/past-papers/css", desc: "Central Superior Services exam past papers for compulsory and optional subjects from 2000 to 2024. Useful for serious CSS aspirants.", icon: "🏛️" },
-    { name: "PPSC Past Papers", link: "/past-papers/ppsc", desc: "Punjab Public Service Commission test papers for various posts including Patwari, ASI, Sub-Inspector, and Lecturer categories.", icon: "📝" },
-    { name: "FPSC Past Papers", link: "/past-papers/fpsc", desc: "Federal Public Service Commission test papers for BPS-14 to BPS-17 posts and competitive examinations.", icon: "🗂️" },
-    { name: "NTS Past Papers", link: "/past-papers/nts", desc: "National Testing Service past papers for GAT, NAT, and recruitment tests for government departments and universities.", icon: "📋" },
+    { title: "Matric (9th & 10th) Past Papers", slug: "matric", icon: "📘", desc: "Past papers for all 9th and 10th grade subjects from all Pakistani boards — BISE Lahore, Karachi, Rawalpindi, Faisalabad, Multan, and more. Subjects include Physics, Chemistry, Biology, Math, English, Urdu, Islamiyat, and Computer Science.", boards: "All BISE Boards", years: "2015–2023" },
+    { title: "Intermediate (11th & 12th) Past Papers", slug: "inter", icon: "📗", desc: "FSc Pre-Medical and Pre-Engineering past papers along with FA, ICS, and I.Com papers. Fully categorized by board, year, and subject for targeted practice.", boards: "All BISE Boards", years: "2015–2023" },
+    { title: "CSS Past Papers", slug: "css", icon: "📙", desc: "Central Superior Services (CSS) past papers for Compulsory and Optional subjects. Practice papers from the Federal Public Service Commission (FPSC) going back 10 years.", boards: "FPSC", years: "2013–2023" },
+    { title: "PPSC & FPSC Past Papers", slug: "ppsc", icon: "📕", desc: "Public Service Commission past papers for various posts — Lecturer, Inspector, ASI, Assistant, Sub-Inspector, Tax Officer, and many more positions.", boards: "PPSC / FPSC / SPSC", years: "2016–2023" },
+    { title: "MDCAT Past Papers", slug: "mdcat", icon: "🩺", desc: "Medical and Dental College Admission Test past papers with answer keys. Practice with real PMC exam questions to build speed and accuracy.", boards: "PMC", years: "2019–2023" },
+    { title: "NTS Past Papers", slug: "nts", icon: "📋", desc: "National Testing Service past papers for GAT General, GAT Subject, NAT-I, NAT-II, and various government department tests.", boards: "NTS Pakistan", years: "2017–2023" },
   ];
 
   const benefits = [
-    { title: "Understand Exam Patterns", desc: "By going through multiple years of past papers, students quickly recognize the types of questions, the distribution of marks across topics, and the difficulty level they can expect in the actual exam." },
-    { title: "Identify Important Topics", desc: "Certain topics and concepts appear repeatedly in past papers. Systematic analysis reveals which chapters are exam favorites and deserve extra attention during your revision." },
-    { title: "Improve Time Management", desc: "Practicing with past papers under timed conditions trains you to complete your answer sheet within the allotted time — one of the biggest challenges students face in board and competitive exams." },
-    { title: "Boost Exam Confidence", desc: "Familiarity with the paper format, question styles, and subject vocabulary reduces exam anxiety. Students who practise with past papers consistently perform better under pressure." },
+    { title: "Understand the Exam Pattern", desc: "Past papers reveal exactly how questions are structured, what types of questions appear, and how much weightage each topic gets. This is information your textbook alone cannot give you." },
+    { title: "Identify High-Frequency Topics", desc: "Certain topics appear in the exam every single year. By analyzing 5–10 years of past papers, you'll know exactly which topics to prioritize for maximum marks." },
+    { title: "Build Speed & Accuracy", desc: "Solving past papers under timed conditions trains your brain to work efficiently under pressure — a skill that is just as important as knowledge on exam day." },
+    { title: "Reduce Exam Anxiety", desc: "Familiarity breeds confidence. Students who have solved 20+ past papers walk into the exam hall feeling prepared rather than anxious, because they've seen it all before." },
+    { title: "Self-Assessment", desc: "Marking your own past paper gives you an honest view of where you stand. It shows you exactly which chapters you've mastered and which ones need more work." },
+    { title: "Practice Active Recall", desc: "Answering questions from memory (rather than reading notes) is scientifically proven to improve long-term retention of information — a concept called the testing effect." },
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Past Papers – Pakistan</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Access past papers for board exams, competitive tests, and university entrance examinations across Pakistan. 
-            Preparing with real past papers is the single most effective strategy for exam success.
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-slate-700 to-gray-900 text-white py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="text-sm text-gray-400 mb-4">
+            <Link href="/" className="hover:text-white">Home</Link> / <span>Past Papers</span>
+          </nav>
+          <h1 className="text-5xl font-bold mb-4">Past Papers — Pakistan</h1>
+          <p className="text-xl text-gray-300 max-w-3xl">
+            Access thousands of free past papers for Matric, Intermediate, CSS, MDCAT, PPSC, and NTS. The fastest way to prepare for any exam in Pakistan.
           </p>
-        </header>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Browse by Category</h2>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {categories.map((cat, idx) => (
-              <a key={idx} href={cat.link} className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
-                <div className="text-4xl mb-3">{cat.icon}</div>
-                <h2 className="text-lg font-bold text-gray-800 mb-2">{cat.name}</h2>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1">{cat.desc}</p>
-                <span className="mt-4 text-emerald-600 font-medium text-sm">View Papers →</span>
-              </a>
-            ))}
+          <div className="mt-8 flex gap-4 flex-wrap text-sm">
+            <span className="bg-white/10 px-4 py-2 rounded-full">10,000+ Papers</span>
+            <span className="bg-white/10 px-4 py-2 rounded-full">All Boards Covered</span>
+            <span className="bg-white/10 px-4 py-2 rounded-full">Free Download</span>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16 bg-white rounded-2xl shadow p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Why Past Papers Are Essential for Exam Preparation</h2>
-          <p className="text-gray-600 mb-8">Educational researchers consistently show that retrieval practice — testing yourself on previous exams — is one of the most effective learning techniques available. Here is why every serious student should make past papers a core part of their study plan.</p>
-          <div className="grid md:grid-cols-2 gap-6">
+      {/* Categories */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Browse Past Papers by Category</h2>
+        <p className="text-gray-600 mb-10">Select the exam category that matches your preparation needs. All papers include answer keys where available.</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {categories.map((c) => (
+            <Link key={c.slug} href={`/past-papers/${c.slug}`} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition hover:border-slate-400 group">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">{c.icon}</span>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-slate-700">{c.title}</h3>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">{c.desc}</p>
+              <div className="flex gap-3 text-xs">
+                <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full">{c.boards}</span>
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📅 {c.years}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Solve Past Papers */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Why Solving Past Papers Works</h2>
+          <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">Research in educational psychology consistently shows that retrieval practice (testing yourself) is one of the most effective study techniques.</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">{i + 1}</div>
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">{b.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{b.desc}</p>
-                </div>
+              <div key={i} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+                <h3 className="font-bold text-gray-900 mb-2">{b.title}</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">How to Use Past Papers Effectively</h2>
-          <div className="space-y-4">
-            {[
-              { step: "Collect papers from at least 5 years", detail: "Go back at least 5 years for board exams and 10 years for competitive exams like CSS and PPSC. A wider data set gives a more accurate picture of exam trends." },
-              { step: "Attempt each paper under real conditions", detail: "Set a timer, switch off distractions, and attempt the full paper as if it were the actual exam. This builds both knowledge and mental endurance." },
-              { step: "Mark your answers using the provided keys", detail: "After completing the paper, use the answer key to evaluate your performance. Identify weak areas and allocate extra study time to those topics." },
-              { step: "Revise weak topics and re-attempt", detail: "Study the concepts you missed or got wrong. After revision, attempt a fresh past paper to confirm you have mastered those topics before moving on." },
-              { step: "Track your progress over time", detail: "Maintain a simple score log. As your scores improve from paper to paper, you will gain confidence and know exactly where you stand relative to the expected merit." },
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-xl shadow p-5 flex gap-4 items-start">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">{i + 1}</span>
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">{item.step}</h3>
-                  <p className="text-gray-600 text-sm">{item.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+      {/* Tips */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">How to Use Past Papers Effectively</h2>
+        <div className="space-y-5">
+          {[
+            { num: "01", tip: "Start solving past papers 3–4 months before your exam — not one week before." },
+            { num: "02", tip: "Always solve under timed conditions that match the real exam duration." },
+            { num: "03", tip: "Mark your answers using the official marking scheme, not just whether you 'knew' it." },
+            { num: "04", tip: "After marking, spend equal time reviewing wrong answers as you did solving." },
+            { num: "05", tip: "Categorize your mistakes: knowledge gaps vs. reading errors vs. time pressure mistakes." },
+            { num: "06", tip: "Solve at least 5 years of papers for each subject before the actual exam." },
+          ].map((t) => (
+            <div key={t.num} className="flex gap-5 items-start bg-white border border-gray-200 rounded-lg p-5">
+              <span className="text-2xl font-bold text-slate-300 flex-shrink-0">{t.num}</span>
+              <p className="text-gray-800 leading-relaxed pt-1">{t.tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <section className="mb-12 bg-emerald-50 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {[
-              { q: "Are the past papers on Taleem4u free to download?", a: "Yes, all past papers available on Taleem4u are completely free. We believe every Pakistani student deserves access to quality study resources regardless of their financial background." },
-              { q: "From which boards are the Matric and Inter papers collected?", a: "We include papers from Lahore Board, Rawalpindi Board, Gujranwala Board, Multan Board, Sargodha Board, Faisalabad Board, Karachi Board (BSEK), and Federal Board (FBISE)." },
-              { q: "Are solved papers available?", a: "For many subjects we provide complete solved papers with detailed explanations. For competitive exams, answer keys are provided. Fully worked solutions help students understand not just the answer but the method." },
-              { q: "How frequently are new papers added?", a: "We update the past papers collection immediately after annual exams. Annual board results and competitive exams typically release papers between May and September each year." },
-            ].map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl p-5">
-                <h3 className="font-semibold text-gray-800 mb-2">{faq.q}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-slate-700 to-gray-900 text-white py-14 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Also Explore Our Books & Study Notes</h2>
+          <p className="text-gray-300 mb-8">Combine past papers with our free textbooks and study notes for the most complete exam preparation.</p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link href="/books" className="bg-white text-slate-800 px-7 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Free Books</Link>
+            <Link href="/guides" className="border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white hover:text-slate-800 transition">Study Guides</Link>
           </div>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Related Resources</h2>
-          <div className="flex flex-wrap gap-3">
-            {[{label:"Books & Notes",href:"/books"},{label:"MDCAT Prep",href:"/prep/mdcat"},{label:"PPSC Prep",href:"/prep/ppsc"},{label:"Scholarships",href:"/scholarships"},{label:"Admissions",href:"/admissions"},{label:"Jobs Portal",href:"/jobs"}].map(l => (
-              <Link key={l.href} href={l.href} className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-emerald-100 transition">{l.label}</Link>
-            ))}
-          </div>
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+    </div>
   );
 }

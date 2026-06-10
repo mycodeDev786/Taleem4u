@@ -1,142 +1,165 @@
-import AdmissionsCarousel from "./AdmissionsCarousel";
 import Link from "next/link";
 
 export const metadata = {
-  title: "University & College Admissions 2025 Pakistan - Taleem4u",
+  title: "University Admissions in Pakistan 2024 | Complete Guide | Taleem4u",
   description:
-    "Find the latest admission updates for universities and colleges across Pakistan. NUST, UET, Punjab University, LUMS and more. Dates, requirements, and how to apply.",
-  alternates: { canonical: "https://www.taleem4u.com/admissions" },
+    "Complete guide to university admissions in Pakistan. Explore top universities, admission requirements, entry test preparation, deadlines, and application tips for Pakistani students.",
+  keywords: "university admissions pakistan, admission guide, entry test, HEC, NUST, LUMS, UET",
+  alternates: { canonical: "https://taleem4u.com/admissions" },
 };
 
 export default function AdmissionsPage() {
-  const admissions = [
-    { title: "University of Punjab Admissions 2025", date: "Last date: 15 Oct 2025", link: "#" },
-    { title: "NUST Admissions 2025", date: "Entry test registration open", link: "#" },
-    { title: "GCU Lahore Admissions 2025", date: "Apply before 30 Sept 2025", link: "#" },
-    { title: "UET Lahore Admissions 2025", date: "Last date: 20 Sept 2025", link: "#" },
-    { title: "LUMS Admissions 2025", date: "Rolling admissions – apply now", link: "#" },
-    { title: "Aga Khan University Admissions", date: "MBBS applications open", link: "#" },
-  ];
-
-  const topUniversities = [
-    { name: "NUST", city: "Islamabad", programs: "Engineering, IT, Business", test: "NET", merit: "Very High" },
-    { name: "UET Lahore", city: "Lahore", programs: "Engineering, Architecture", test: "ECAT", merit: "High" },
-    { name: "University of Punjab", city: "Lahore", programs: "Law, Sciences, Arts, Commerce", test: "PU Entry Test", merit: "Medium–High" },
-    { name: "LUMS", city: "Lahore", programs: "Business, Law, CS", test: "LUMS SAT / LCAT", merit: "Very High" },
-    { name: "QAU", city: "Islamabad", programs: "Natural & Social Sciences", test: "QAU Entry Test", merit: "High" },
-    { name: "IBA Karachi", city: "Karachi", programs: "BBA, BS CS, MBA", test: "IBA Aptitude Test", merit: "Very High" },
+  const universities = [
+    { name: "NUST", full: "National University of Sciences & Technology", city: "Islamabad", test: "NET", fields: "Engineering, Sciences, IT, Management" },
+    { name: "LUMS", full: "Lahore University of Management Sciences", city: "Lahore", test: "SAT / LUMS Own", fields: "Business, Law, Sciences, Social Sciences" },
+    { name: "UET", full: "University of Engineering & Technology", city: "Lahore", test: "ECAT", fields: "Engineering, Architecture" },
+    { name: "FAST-NUCES", full: "National University of Computer & Sciences", city: "Multi-campus", test: "NU Entry Test", fields: "CS, IT, Engineering, Business" },
+    { name: "Quaid-i-Azam University", full: "Quaid-i-Azam University", city: "Islamabad", test: "QAU Own Test", fields: "Sciences, Social Sciences, Law" },
+    { name: "University of Karachi", full: "University of Karachi", city: "Karachi", test: "KU Admission Test", fields: "Arts, Sciences, Commerce, Pharmacy" },
+    { name: "COMSATS University", full: "COMSATS University Islamabad", city: "Multi-campus", test: "NET / COMSATS Own", fields: "Engineering, Sciences, IT, Business" },
+    { name: "Aga Khan University", full: "Aga Khan University", city: "Karachi", test: "AKU-EB / Own Test", fields: "Medicine, Nursing, Education" },
   ];
 
   const steps = [
-    { step: "1", title: "Check Eligibility Criteria", desc: "Each university sets minimum marks — usually 60–70% in Matric/FSc for most programs. Medical (MBBS/BDS) requires 70% and a passing MDCAT score. Engineering programs require ECAT." },
-    { step: "2", title: "Prepare for Entry Tests", desc: "Most public universities require a qualifying entry test. Start preparing 3–4 months before. Use past papers, online tests, and subject-specific preparation books (NET, ECAT, MDCAT)." },
-    { step: "3", title: "Gather Required Documents", desc: "Commonly needed: Matric certificate & mark sheet, FSc/A-level result, CNIC/B-Form, domicile certificate, passport-size photos, and migration certificate if applicable." },
-    { step: "4", title: "Apply Before the Deadline", desc: "Most universities open applications in August–September for Fall semester. Late applications are usually not accepted. Mark all deadlines on a calendar and apply early." },
-    { step: "5", title: "Track Merit Lists", desc: "After tests, universities release first, second, and third merit lists. Monitor the official website and confirm your seat by paying the fee within the specified window." },
+    { step: "1", title: "Research Universities & Programs", desc: "Start by researching which universities offer your desired program. Check HEC's recognized universities list. Compare rankings, faculty, campus life, fee structures, and graduate outcomes before making a shortlist of 5–10 universities." },
+    { step: "2", title: "Check Eligibility Criteria", desc: "Each university has its own eligibility requirements. Generally you need Matric with at least 60% marks and Intermediate (FSc/FA/ICS) with 60–70%+ marks. Some top universities require 80%+ in relevant subjects." },
+    { step: "3", title: "Prepare for Entry Tests", desc: "Most universities conduct their own entry tests or accept scores from SAT, MDCAT, ECAT, or NTS-NAT. Start preparation at least 6 months before the test. Use past papers, mock tests, and subject-specific guides." },
+    { step: "4", title: "Gather Required Documents", desc: "Common documents include: Matric & Inter certificates and mark sheets, CNIC / B-Form, passport-size photographs, domicile certificate, character certificate from previous institution, and entry test result." },
+    { step: "5", title: "Submit Online Application", desc: "Most universities now accept online applications. Create your account on the university's portal, fill the form carefully, upload documents in the specified format/size, and pay the application fee via bank challan or online payment." },
+    { step: "6", title: "Appear in Entry Test / Interview", desc: "Appear for the entry test on the scheduled date. Some programs (Medicine, MBA, Law) also require a personal interview. Dress formally, arrive early, and bring all required documents and your CNIC." },
+    { step: "7", title: "Check Merit List", desc: "Universities release merit lists on their website and notice boards. Merit is usually calculated combining your academic marks (Matric + Inter) and entry test score. Check the list on the announced date." },
+    { step: "8", title: "Complete Enrollment", desc: "If your name appears on the merit list, pay the semester fee within the given deadline (usually 3–5 days) to secure your seat. Late payment results in cancellation of admission." },
   ];
 
-  const faqs = [
-    { q: "When do university admissions open in Pakistan?", a: "Most universities open admissions in August–September for the Fall semester (starting October–November). Spring semester admissions usually open in January–February. Always check each university's official website for exact dates." },
-    { q: "Is an entry test mandatory for all universities?", a: "Public universities such as NUST, UET, and Punjab University require their own tests. Private institutions like LUMS and IBA have aptitude tests. Some smaller private universities admit based on Matric/FSc marks alone." },
-    { q: "What is the minimum percentage for MBBS admission?", a: "For MBBS/BDS you need at least 70% in FSc (Pre-Medical) and a valid MDCAT score of 65% or above as per PMC regulations. Provincial merit is also a factor for public medical college seats." },
-    { q: "Can I apply to multiple universities at once?", a: "Yes. You can apply to as many universities as you wish, paying separate application fees for each. Once you receive an offer, you must confirm your seat at one institution by paying the semester fee." },
-    { q: "What documents are needed for university admission?", a: "Typically: Matric certificate, FSc certificate, CNIC or B-Form, domicile certificate, character certificate, 4–6 passport photos, and your entry test result slip." },
+  const entryTests = [
+    { name: "MDCAT", full: "Medical & Dental College Admission Test", for: "MBBS / BDS", body: "PMC", subjects: "Biology, Chemistry, Physics, English" },
+    { name: "ECAT", full: "Engineering College Admission Test", for: "BE / BS Engineering", body: "UET & affiliates", subjects: "Math, Physics, Chemistry, English" },
+    { name: "NET", full: "NUST Entry Test", for: "All NUST programs", body: "NUST", subjects: "Math, Physics, Chemistry, English, Intelligence" },
+    { name: "SAT", full: "Scholastic Assessment Test", for: "LUMS, IBA, selected universities", body: "College Board (USA)", subjects: "Math, Reading, Writing" },
+    { name: "NTS-NAT", full: "National Aptitude Test", for: "Many public universities", body: "NTS", subjects: "Verbal, Analytical, Quantitative" },
+    { name: "GMAT", full: "Graduate Management Admission Test", for: "MBA programs", body: "GMAC", subjects: "Verbal, Quantitative, IR, AWA" },
+    { name: "GRE", full: "Graduate Record Examination", for: "MS / PhD programs", body: "ETS", subjects: "Verbal, Quantitative, AWA" },
+    { name: "IELTS / TOEFL", full: "English Proficiency Tests", for: "Foreign / English-medium universities", body: "British Council / ETS", subjects: "Listening, Reading, Writing, Speaking" },
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-24">
-      <AdmissionsCarousel items={admissions} />
-      <div className="max-w-6xl mx-auto py-12 px-6">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">University & College Admissions 2025</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Stay up-to-date with admission announcements from schools, colleges, and universities across Pakistan. 
-            Find entry test dates, merit criteria, required documents, and application links — all in one place.
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="text-sm mb-4 text-indigo-200">
+            <Link href="/" className="hover:text-white">Home</Link> / <span>Admissions</span>
+          </nav>
+          <h1 className="text-5xl font-bold mb-4">University Admissions in Pakistan</h1>
+          <p className="text-xl text-indigo-100 max-w-3xl">
+            Your complete guide to securing admission in Pakistan's top universities. From entry tests to enrollment — we cover every step.
           </p>
-        </header>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Latest Admission Announcements</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {admissions.map((item, idx) => (
-              <article key={idx} className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-emerald-600 font-medium mb-3">{item.date}</p>
-                <p className="text-gray-500 text-sm mb-4">View eligibility criteria, fee structure, required documents, and online application process.</p>
-                <a href={item.link} className="inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-emerald-700 transition font-medium">View Details →</a>
-              </article>
-            ))}
-          </div>
-        </section>
+      {/* Step-by-Step Process */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Step-by-Step Admission Process</h2>
+        <p className="text-gray-600 mb-10 max-w-3xl">Understanding the admission process is the first step to success. Follow these 8 steps to navigate university admissions in Pakistan smoothly.</p>
+        <div className="space-y-6">
+          {steps.map((s) => (
+            <div key={s.step} className="flex gap-5 bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition">
+              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">{s.step}</div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Top Universities in Pakistan – Quick Overview</h2>
-          <p className="text-gray-600 mb-6">Pakistan has over 200 HEC-recognized universities. Here is a summary of the country's leading institutions and their admission requirements for 2025.</p>
-          <div className="overflow-x-auto rounded-xl shadow">
-            <table className="w-full bg-white text-sm">
-              <thead className="bg-emerald-700 text-white">
-                <tr>
-                  <th className="text-left p-4">University</th>
-                  <th className="text-left p-4">City</th>
-                  <th className="text-left p-4">Key Programs</th>
-                  <th className="text-left p-4">Entry Test</th>
-                  <th className="text-left p-4">Merit</th>
+      {/* Entry Tests */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Major Entry Tests in Pakistan</h2>
+          <p className="text-gray-600 mb-10">Knowing which test to prepare for can save you months of wasted effort. Here is a complete overview of all major entry tests.</p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white rounded-lg shadow">
+              <thead>
+                <tr className="bg-indigo-600 text-white">
+                  <th className="px-4 py-3 text-left">Test</th>
+                  <th className="px-4 py-3 text-left">Full Name</th>
+                  <th className="px-4 py-3 text-left">For</th>
+                  <th className="px-4 py-3 text-left">Subjects</th>
                 </tr>
               </thead>
               <tbody>
-                {topUniversities.map((uni, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                    <td className="p-4 font-medium text-gray-800">{uni.name}</td>
-                    <td className="p-4 text-gray-600">{uni.city}</td>
-                    <td className="p-4 text-gray-600">{uni.programs}</td>
-                    <td className="p-4 text-gray-600">{uni.test}</td>
-                    <td className="p-4">
-                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${uni.merit === "Very High" ? "bg-red-100 text-red-700" : uni.merit === "High" ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700"}`}>{uni.merit}</span>
-                    </td>
+                {entryTests.map((t, i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td className="px-4 py-3 font-bold text-indigo-700">{t.name}</td>
+                    <td className="px-4 py-3 text-gray-800">{t.full}</td>
+                    <td className="px-4 py-3 text-gray-700">{t.for}</td>
+                    <td className="px-4 py-3 text-gray-600 text-sm">{t.subjects}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">How to Apply for University Admissions</h2>
-          <p className="text-gray-600 mb-8">Follow these five steps to ensure a smooth application process and improve your chances of getting into your dream university.</p>
-          <div className="space-y-6">
-            {steps.map((s) => (
-              <div key={s.step} className="flex gap-6 bg-white rounded-xl shadow p-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xl font-bold">{s.step}</div>
+      {/* Top Universities */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Top Universities in Pakistan</h2>
+        <p className="text-gray-600 mb-10">Here are some of Pakistan's most reputable universities across various disciplines.</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {universities.map((u, i) => (
+            <div key={i} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
+              <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-1">{s.title}</h3>
-                  <p className="text-gray-600">{s.desc}</p>
+                  <h3 className="text-xl font-bold text-indigo-700">{u.name}</h3>
+                  <p className="text-gray-600 text-sm">{u.full}</p>
                 </div>
+                <span className="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">{u.city}</span>
+              </div>
+              <div className="space-y-1 text-sm text-gray-700">
+                <p><span className="font-semibold">Entry Test:</span> {u.test}</p>
+                <p><span className="font-semibold">Programs:</span> {u.fields}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Tips */}
+      <section className="bg-indigo-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Expert Admission Tips</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: "Apply to Multiple Universities", tip: "Never rely on a single institution. Apply to at least 4–6 universities across different tiers (reach, match, safety) to maximize your chances." },
+              { title: "Start Preparing Early", tip: "Begin entry test preparation at least 6–12 months in advance. Consistent daily study is far more effective than last-minute cramming." },
+              { title: "Keep Documents Ready", tip: "Get all documents attested and scanned well in advance. Missing paperwork is one of the most common reasons applications are rejected." },
+              { title: "Track Deadlines Carefully", tip: "Maintain a spreadsheet of all application deadlines. Missing a deadline by even one day can mean waiting an entire year for the next cycle." },
+              { title: "Financial Planning", tip: "Explore scholarships, need-based grants, and student loan options early. HEC, PEEF, and universities themselves offer various funding opportunities." },
+              { title: "Campus Visits", tip: "If possible, visit shortlisted campuses before applying. Talking to current students gives you insight that no website can provide." },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-indigo-600">
+                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">{item.tip}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl shadow p-6">
-                <h3 className="font-semibold text-gray-800 mb-2">{faq.q}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-14 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Ready to Begin Your Journey?</h2>
+          <p className="text-indigo-100 mb-8">Explore scholarships to fund your education and browse our study guides for entry test preparation.</p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link href="/scholarships" className="bg-white text-indigo-600 px-7 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Find Scholarships</Link>
+            <Link href="/guides" className="border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition">Study Guides</Link>
           </div>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Related Resources</h2>
-          <div className="flex flex-wrap gap-3">
-            {[{label:"Scholarships",href:"/scholarships"},{label:"Past Papers",href:"/past-papers"},{label:"Books & Notes",href:"/books"},{label:"MDCAT Prep",href:"/prep/mdcat"},{label:"PPSC Prep",href:"/prep/ppsc"},{label:"Jobs Portal",href:"/jobs"}].map(l => (
-              <Link key={l.href} href={l.href} className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-emerald-100 transition">{l.label}</Link>
-            ))}
-          </div>
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+    </div>
   );
 }

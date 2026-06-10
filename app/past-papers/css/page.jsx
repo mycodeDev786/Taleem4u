@@ -1,115 +1,122 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "CSS Past Papers – All Compulsory & Optional Subjects | Taleem4u",
+  title: "CSS Past Papers 2013–2023 | Compulsory & Optional Subjects | FPSC | Taleem4u",
   description:
-    "Download CSS (Central Superior Services) past papers for all compulsory and optional subjects. Papers from 2005–2024. Prepare smarter with year-wise CSS exam collections.",
-  alternates: { canonical: "https://www.taleem4u.com/past-papers/css" },
+    "Download CSS past papers for all compulsory and optional subjects from FPSC. Practice with 10+ years of Central Superior Services papers to pass one of Pakistan's toughest exams.",
+  keywords: "CSS past papers, FPSC CSS papers, CSS exam preparation, CSS compulsory papers, CSS optional papers",
+  alternates: { canonical: "https://taleem4u.com/past-papers/css" },
 };
 
 export default function CSSPastPapers() {
-  const compulsorySubjects = [
-    { name: "English Essay", slug: "english-essay", desc: "Essay papers testing analytical thinking, current affairs awareness, and quality of written expression." },
-    { name: "English Précis & Composition", slug: "english-precis", desc: "Précis writing, comprehension passages, translation, and letter/report writing." },
-    { name: "General Science & Ability", slug: "general-science", desc: "Mathematics, logical reasoning, general science, and analytical thinking questions." },
-    { name: "Current Affairs", slug: "current-affairs", desc: "National and international political, economic, and social events and analysis." },
-    { name: "Pakistan Affairs", slug: "pakistan-affairs", desc: "History of Pakistan, constitution, governance, FATA, Kashmir, and national issues." },
-    { name: "Islamic Studies / Ethics", slug: "islamic-studies", desc: "Principles of Islam, Quranic guidance, Islamic civilization, and ethics for non-Muslims." },
+  const compulsory = [
+    { name: "English Essay", marks: 100 },
+    { name: "English Precis & Composition", marks: 100 },
+    { name: "General Science & Ability", marks: 100 },
+    { name: "Current Affairs", marks: 100 },
+    { name: "Pakistan Affairs", marks: 100 },
+    { name: "Islamiat / Comparative Religion", marks: 100 },
   ];
 
-  const optionalGroups = [
-    { group: "Group A – Humanities", subjects: ["History of Pakistan & India", "International Relations", "Political Science", "Sociology", "Public Administration"] },
-    { group: "Group B – Law", subjects: ["Constitutional Law", "International Law", "Muslim Law & Jurisprudence", "Mercantile Law"] },
-    { group: "Group C – Sciences", subjects: ["Physics", "Chemistry", "Mathematics", "Statistics", "Computer Science"] },
-    { group: "Group D – Economics & Commerce", subjects: ["Economics", "Accountancy & Auditing", "Business Administration", "Agriculture & Forestry"] },
+  const optional = [
+    "Political Science", "International Relations", "Public Administration", "Business Administration",
+    "Economics", "Accounting & Auditing", "Law", "Constitutional Law",
+    "History of Pakistan & India", "History of Europe", "Geography", "Sociology",
+    "Psychology", "Philosophy", "English Literature", "Urdu Literature",
+    "Arabic", "Persian", "Computer Science", "Physics", "Chemistry",
+    "Agriculture", "Forestry", "Botany", "Zoology", "Environmental Science",
   ];
 
-  const cssStats = [
-    { label: "Total Marks", value: "1200" },
-    { label: "Written Exam", value: "1000" },
-    { label: "Viva Voce", value: "200" },
-    { label: "Pass Rate (avg)", value: "~2–4%" },
+  const facts = [
+    { label: "Pass Rate", value: "2–3%", note: "CSS is one of the hardest exams in Pakistan" },
+    { label: "Total Marks", value: "1200", note: "600 compulsory + 600 optional" },
+    { label: "Passing Marks", value: "600+", note: "50% overall + 33% per subject minimum" },
+    { label: "Age Limit", value: "21–30 years", note: "Relaxation for minorities and women" },
+    { label: "Education", value: "16 years", note: "Bachelor's degree minimum" },
+    { label: "Attempts", value: "3 attempts", note: "Relaxed for women and special categories" },
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="text-sm mb-6 text-gray-600">
-        <Link href="/" className="hover:underline">Home</Link> &gt;{" "}
-        <Link href="/past-papers" className="hover:underline">Past Papers</Link> &gt;{" "}
-        <span className="font-semibold">CSS</span>
-      </nav>
-
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">CSS Past Papers – Central Superior Services</h1>
-        <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-          The CSS examination is Pakistan's most prestigious competitive exam, conducted by the Federal Public 
-          Service Commission (FPSC). Practicing with past papers is essential to understanding the depth and 
-          breadth of questions expected at this level.
-        </p>
-      </header>
-
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-        {cssStats.map((s, i) => (
-          <div key={i} className="bg-white rounded-xl shadow p-5 text-center">
-            <p className="text-2xl font-extrabold text-emerald-600">{s.value}</p>
-            <p className="text-gray-500 text-sm mt-1">{s.label}</p>
-          </div>
-        ))}
-      </div>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Compulsory Subject Papers</h2>
-        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-          {compulsorySubjects.map((subject) => (
-            <Link key={subject.slug} href={`/past-papers/css/${subject.slug}`}
-              className="bg-white rounded-xl shadow p-6 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
-              <h2 className="text-lg font-semibold text-gray-800 mb-2">{subject.name}</h2>
-              <p className="text-gray-500 text-sm flex-1 mb-4 leading-relaxed">{subject.desc}</p>
-              <span className="text-emerald-600 text-sm font-medium">View Papers →</span>
-            </Link>
-          ))}
+    <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="text-sm text-gray-400 mb-4">
+            <Link href="/">Home</Link> / <Link href="/past-papers">Past Papers</Link> / <span>CSS</span>
+          </nav>
+          <h1 className="text-4xl font-bold mb-3">CSS Past Papers — FPSC</h1>
+          <p className="text-gray-300 text-lg max-w-3xl">Central Superior Services (CSS) past papers from 2013 to 2023. Download compulsory and optional subject papers to prepare for Pakistan's most prestigious civil service exam.</p>
         </div>
       </section>
 
-      <section className="mb-12 bg-white rounded-2xl shadow p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Optional Subject Groups</h2>
-        <p className="text-gray-600 mb-6 text-sm">CSS candidates must select optional subjects from the approved list totalling at least 600 marks. Papers for all optional subjects are available below.</p>
-        <div className="space-y-6">
-          {optionalGroups.map((g, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl p-5">
-              <h3 className="font-bold text-gray-800 mb-3">{g.group}</h3>
-              <div className="flex flex-wrap gap-2">
-                {g.subjects.map((s, j) => (
-                  <a key={j} href="#" className="bg-gray-50 hover:bg-emerald-50 hover:text-emerald-700 text-gray-600 px-3 py-1.5 rounded-lg text-sm transition border border-gray-200">{s}</a>
-                ))}
+      {/* CSS Facts */}
+      <section className="bg-gray-50 py-10">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">CSS Exam — Key Facts</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {facts.map((f, i) => (
+              <div key={i} className="bg-white rounded-lg p-4 border border-gray-200 text-center">
+                <div className="text-2xl font-bold text-gray-800 mb-1">{f.value}</div>
+                <div className="font-semibold text-gray-700 text-sm mb-1">{f.label}</div>
+                <div className="text-xs text-gray-500">{f.note}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compulsory Papers */}
+      <section className="max-w-6xl mx-auto px-4 py-14">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Compulsory Subject Papers</h2>
+        <p className="text-gray-600 mb-8">All CSS candidates must appear in 6 compulsory subjects worth 600 marks. These papers are available for 2013–2023.</p>
+        <div className="grid md:grid-cols-2 gap-4">
+          {compulsory.map((s) => (
+            <div key={s.name} className="bg-white border border-gray-200 rounded-lg p-5 flex items-center justify-between hover:shadow-md transition">
+              <div>
+                <h3 className="font-semibold text-gray-900">{s.name}</h3>
+                <p className="text-sm text-gray-500">{s.marks} marks • 10 years papers</p>
+              </div>
+              <button className="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-900 transition">View Papers</button>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mb-12 bg-emerald-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">CSS Exam Overview & Eligibility</h2>
-        <div className="space-y-4 text-sm text-gray-700">
-          <p><strong>What is CSS?</strong> The Central Superior Services (CSS) competitive examination is conducted annually by the FPSC to recruit officers for Pakistan's civil services, including DMG (District Management Group), Police Service, Foreign Service, Income Tax, Customs, and several other occupational groups.</p>
-          <p><strong>Eligibility:</strong> Candidates must hold a Bachelor's degree (minimum 2nd division / 45%) from an HEC-recognized university, be between 21–30 years of age (with relaxations for government servants and specific groups), and must be a Pakistani citizen.</p>
-          <p><strong>Exam Structure:</strong> The written exam consists of 12 papers — 6 compulsory and 6 optional — for a total of 1,000 marks. Candidates who qualify the written exam are called for a Viva Voce (oral examination) worth 200 marks. Final merit is calculated on the combined score.</p>
-          <p><strong>Recommended Preparation Timeline:</strong> Most successful CSS candidates invest 12–18 months of dedicated preparation. Begin with compulsory subjects, especially English Essay and Précis, which are the most differentiating papers. Simultaneously build a current affairs reading habit by following quality newspapers and journals daily.</p>
+      {/* Optional Papers */}
+      <section className="bg-gray-50 py-14">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Optional Subject Papers</h2>
+          <p className="text-gray-600 mb-8">CSS candidates choose 6 optional subjects (600 marks). Browse past papers for all available optional subjects.</p>
+          <div className="flex flex-wrap gap-3">
+            {optional.map((s) => (
+              <button key={s} className="bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-800 hover:border-gray-700 hover:bg-gray-800 hover:text-white transition">{s}</button>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Related Resources</h2>
-        <div className="flex flex-wrap gap-3">
+      {/* CSS Prep Tips */}
+      <section className="max-w-6xl mx-auto px-4 py-14">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">How to Use CSS Past Papers Effectively</h2>
+        <div className="grid md:grid-cols-2 gap-6">
           {[
-            { label: "PPSC Past Papers", href: "/past-papers/ppsc" },
-            { label: "Matric Past Papers", href: "/past-papers/matric" },
-            { label: "Inter Past Papers", href: "/past-papers/inter" },
-            { label: "PPSC Prep Guide", href: "/prep/ppsc" },
-            { label: "Government Jobs", href: "/jobs/government" },
-          ].map(l => (
-            <Link key={l.href} href={l.href} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-emerald-50 hover:text-emerald-700 transition">{l.label}</Link>
+            { t: "Start with 5-Year Analysis", b: "Before attempting papers, analyze 5 years for each subject. Note which topics repeat, the style of questions (analytical vs. factual), and the expected answer length." },
+            { t: "Practice Essay Writing Rigorously", b: "CSS English Essay is where most candidates lose significant marks. Practice writing one 1500-word essay weekly under 3-hour conditions. Have a teacher review it." },
+            { t: "Follow the Marking Scheme", b: "CSS answers are marked differently from other exams. Read FPSC guidelines on how marks are awarded. Structured answers with headings, points, and examples score best." },
+            { t: "Choose Optionals Strategically", b: "Choose optional subjects you genuinely know well, not what you think sounds impressive. IR, Political Science, and Public Administration are popular high-scoring choices." },
+          ].map((tip, i) => (
+            <div key={i} className="bg-white border-l-4 border-gray-800 rounded-lg p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{tip.t}</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">{tip.b}</p>
+            </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-14 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Also Explore PPSC & Government Job Prep</h2>
+          <p className="text-gray-300 mb-8">Preparing for provincial or federal government jobs beyond CSS? We have you covered.</p>
+          <Link href="/jobs/government" className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Government Jobs →</Link>
         </div>
       </section>
     </div>

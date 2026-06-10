@@ -1,143 +1,160 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "MDCAT Preparation 2025 – Books, Notes, Past Papers & Online Tests | Taleem4u",
+  title: "MDCAT Preparation 2024 | Full Guide, Notes, Past Papers & Practice Tests | Taleem4u",
   description:
-    "Complete MDCAT preparation guide for Pakistan. Download MDCAT syllabus, recommended books, chapter-wise notes, past papers from 2015–2024, and practice with free online mock tests.",
-  alternates: { canonical: "https://www.taleem4u.com/prep/mdcat" },
+    "Complete MDCAT preparation resources — syllabus, study notes, past papers, practice tests, MCQ banks, and expert strategies to score 150+ in the Pakistan Medical Commission test.",
+  keywords: "MDCAT preparation, MDCAT syllabus, MDCAT notes, MDCAT practice, PMC exam 2024",
+  alternates: { canonical: "https://taleem4u.com/prep/mdcat" },
 };
 
-export default function MdcatPage() {
-  const resources = [
-    { title: "Past Papers", description: "Access MDCAT past papers from 2015 to 2024. Practice with real exam questions, understand the pattern, and identify recurring high-weight topics in Biology, Chemistry, Physics, and English.", link: "/past-papers/mdcat", icon: "📄", color: "blue" },
-    { title: "Books", description: "Download MDCAT-recommended textbooks in PDF. Includes PMC-approved books for Biology, Chemistry, Physics, and Logical Reasoning. Save money and study from anywhere.", link: "/books/mdcat", icon: "📚", color: "green" },
-    { title: "Chapter Notes", description: "Concise, exam-focused revision notes for all MDCAT subjects. Prepared by top scorers and subject experts. Perfect for last-minute revision before your test date.", link: "/notes/mdcat", icon: "📋", color: "purple" },
-    { title: "Mock Tests", description: "Attempt full-length MDCAT mock tests (210 MCQs in 3.5 hours) under timed conditions. Get instant score reports and identify your weak areas for targeted improvement.", link: "/tests/mdcat", icon: "✏️", color: "red" },
-  ];
-
+export default function MDCATPrep() {
   const syllabus = [
-    { subject: "Biology", marks: 80, percentage: "38%", topics: "Cell Biology, Genetics, Human Physiology, Ecology, Plant Biology, Evolution" },
-    { subject: "Chemistry", marks: 60, percentage: "29%", topics: "Atomic Structure, Chemical Bonding, Organic Chemistry, Reactions, Equilibrium" },
-    { subject: "Physics", marks: 40, percentage: "19%", topics: "Mechanics, Waves, Thermodynamics, Electrostatics, Modern Physics" },
-    { subject: "English", marks: 18, percentage: "9%", topics: "Vocabulary, Reading Comprehension, Sentence Structure, Grammar" },
-    { subject: "Logical Reasoning", marks: 12, percentage: "6%", topics: "Pattern Recognition, Analogies, Data Interpretation, Deductive Reasoning" },
+    { subject: "Biology", chapters: 15, weight: "40%", marks: 88, keyTopics: ["Cell Biology", "Bioenergetics", "Genetics", "Reproduction", "Homeostasis", "Ecology", "Evolution", "Kingdom Animalia", "Kingdom Plantae"] },
+    { subject: "Chemistry", chapters: 17, weight: "30%", marks: 66, keyTopics: ["Atomic Structure", "Chemical Bonding", "Thermodynamics", "Electrochemistry", "Equilibrium", "Organic Reactions", "Hydrocarbons", "Polymers"] },
+    { subject: "Physics", chapters: 11, weight: "30%", marks: 66, keyTopics: ["Measurements", "Kinematics", "Work & Energy", "Circular Motion", "Waves", "Thermodynamics", "Optics", "Electrostatics", "Magnetism"] },
   ];
 
-  const studyPlan = [
-    { phase: "Phase 1 (Months 1–2)", title: "Foundation Building", tasks: ["Review all FSc Biology, Chemistry, and Physics textbooks chapter by chapter", "Make summary notes for each chapter as you study", "Focus on understanding concepts, not memorization", "Complete all past-paper questions related to each chapter after studying it"] },
-    { phase: "Phase 2 (Months 3–4)", title: "Practice & Weak Area Fixing", tasks: ["Attempt 3–4 MDCAT past papers under exam conditions", "Identify the topics where you scored below 60% and revise them", "Practice English vocabulary daily — 15–20 new words per day", "Start timed MCQ practice to build speed and accuracy"] },
-    { phase: "Phase 3 (Month 5)", title: "Final Revision", tasks: ["Revise all chapter notes without re-reading full textbooks", "Attempt 2 full mock tests every week", "Review every mistake and ensure you understand why you got it wrong", "Maintain a healthy sleep routine — aim for 7–8 hours per night"] },
+  const resources = [
+    { title: "MDCAT Past Papers (2019–2023)", type: "Past Papers", desc: "Solve 5 years of actual MDCAT papers to understand real exam patterns and difficulty level.", link: "/past-papers/mdcat" },
+    { title: "Biology Chapter Notes", type: "Study Notes", desc: "Concise, exam-focused notes for all 15 MDCAT Biology chapters with diagrams and definitions.", link: "/books/notes" },
+    { title: "Chemistry Formula Sheets", type: "Study Notes", desc: "One-page formula and reaction sheets for all MDCAT Chemistry chapters.", link: "/books/notes" },
+    { title: "Physics Problem Sets", type: "Practice", desc: "Solved numerical problems for all Physics chapters with step-by-step solutions.", link: "/books/notes" },
+    { title: "MDCAT Preparation Guide", type: "Guide", desc: "Our comprehensive 12-month MDCAT preparation strategy with weekly study plans.", link: "/guides/mdcat-preparation-guide" },
+    { title: "Subject-wise MCQ Banks", type: "Practice", desc: "5,000+ topic-wise MCQs with explanations for Biology, Chemistry, and Physics.", link: "#" },
+  ];
+
+  const schedule = [
+    { period: "6 Months Before", focus: "Biology & Chemistry Concepts", daily: "4–5 hours", goal: "Complete syllabus with understanding" },
+    { period: "4 Months Before", focus: "Physics + Revision", daily: "5–6 hours", goal: "All subjects covered once" },
+    { period: "2 Months Before", focus: "Mock Tests & MCQ Practice", daily: "6–7 hours", goal: "200+ MCQs daily, 2 full mocks/week" },
+    { period: "2 Weeks Before", focus: "Rapid Revision + Key Points", daily: "5–6 hours", goal: "Formulas, diagrams, key definitions" },
+    { period: "Last 3 Days", focus: "Light Revision + Rest", daily: "3–4 hours", goal: "Stay calm, revise notes, sleep well" },
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-16 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-14">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">MDCAT Preparation 2025</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            The Medical and Dental College Admission Test (MDCAT) is conducted by the Pakistan Medical Commission (PMC). 
-            It is the gateway to MBBS and BDS programs at public and private medical colleges across Pakistan. 
-            This comprehensive resource hub gives you everything you need to score high — books, notes, past papers, and mock tests.
+    <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-r from-red-700 to-rose-600 text-white py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="text-sm text-red-200 mb-4">
+            <Link href="/">Home</Link> / <span>MDCAT Preparation</span>
+          </nav>
+          <h1 className="text-5xl font-bold mb-4">MDCAT Preparation Hub</h1>
+          <p className="text-red-100 text-xl max-w-3xl">
+            Everything you need to crack MDCAT 2024 — syllabus breakdown, past papers, notes, MCQ banks, and a proven preparation strategy.
           </p>
-        </header>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Study Resources</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {resources.map((item, index) => (
-              <Link key={index} href={item.link} className="group bg-white p-7 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer text-center flex flex-col">
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1">{item.description}</p>
-                <span className="mt-4 text-blue-600 text-sm font-medium">Explore →</span>
-              </Link>
-            ))}
+          <div className="mt-8 flex gap-4 flex-wrap text-sm">
+            <span className="bg-white/20 px-4 py-2 rounded-full">220 Questions</span>
+            <span className="bg-white/20 px-4 py-2 rounded-full">3.5 Hours</span>
+            <span className="bg-white/20 px-4 py-2 rounded-full">Biology 40% | Chemistry 30% | Physics 30%</span>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16 bg-white rounded-2xl shadow p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">MDCAT Syllabus & Subject Weightage 2025</h2>
-          <p className="text-gray-600 mb-6">The MDCAT consists of 210 MCQs and has a duration of 3.5 hours (210 minutes). Understanding the marks distribution helps you allocate your study time wisely. Biology has the highest weight and should receive the most preparation time.</p>
-          <div className="overflow-x-auto rounded-xl">
-            <table className="w-full text-sm bg-white border border-gray-200">
-              <thead className="bg-blue-600 text-white">
-                <tr>
-                  <th className="text-left p-4">Subject</th>
-                  <th className="text-left p-4">Total Marks</th>
-                  <th className="text-left p-4">% of Total</th>
-                  <th className="text-left p-4">Key Topics</th>
+      {/* Syllabus */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">MDCAT 2024 Syllabus Breakdown</h2>
+        <p className="text-gray-600 mb-10">The MDCAT is based on the FSc (11th & 12th class) curriculum set by the Punjab Curriculum & Textbook Board. Here is a complete breakdown:</p>
+        <div className="space-y-6">
+          {syllabus.map((s, i) => (
+            <div key={i} className={`bg-white border rounded-lg p-6 hover:shadow-md transition ${i === 0 ? "border-green-400" : i === 1 ? "border-blue-400" : "border-purple-400"}`}>
+              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900">{s.subject}</h3>
+                <div className="flex gap-3 text-sm">
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Chapters: {s.chapters}</span>
+                  <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full font-semibold">Weight: {s.weight} ({s.marks} MCQs)</span>
+                </div>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-700 mb-2">Key Topics:</p>
+                <div className="flex flex-wrap gap-2">
+                  {s.keyTopics.map((t) => (
+                    <span key={t} className="text-xs bg-gray-50 border border-gray-200 text-gray-700 px-2 py-1 rounded">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Study Schedule */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Recommended Study Schedule</h2>
+          <p className="text-gray-600 mb-10">This 6-month schedule is designed for students starting fresh. Adjust based on your starting point.</p>
+          <div className="overflow-x-auto">
+            <table className="w-full bg-white rounded-lg shadow border-collapse">
+              <thead>
+                <tr className="bg-red-700 text-white">
+                  <th className="px-5 py-3 text-left">Time Period</th>
+                  <th className="px-5 py-3 text-left">Focus Area</th>
+                  <th className="px-5 py-3 text-left">Daily Hours</th>
+                  <th className="px-5 py-3 text-left">Goal</th>
                 </tr>
               </thead>
               <tbody>
-                {syllabus.map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                    <td className="p-4 font-semibold text-gray-800">{row.subject}</td>
-                    <td className="p-4 text-gray-700">{row.marks}</td>
-                    <td className="p-4"><span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs font-semibold">{row.percentage}</span></td>
-                    <td className="p-4 text-gray-600 text-xs">{row.topics}</td>
+                {schedule.map((row, i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td className="px-5 py-3 font-semibold text-gray-800">{row.period}</td>
+                    <td className="px-5 py-3 text-gray-700">{row.focus}</td>
+                    <td className="px-5 py-3 text-red-700 font-semibold">{row.daily}</td>
+                    <td className="px-5 py-3 text-gray-600 text-sm">{row.goal}</td>
                   </tr>
                 ))}
-                <tr className="bg-blue-50 font-bold">
-                  <td className="p-4">Total</td>
-                  <td className="p-4">210</td>
-                  <td className="p-4">100%</td>
-                  <td className="p-4 text-gray-500 text-xs">3.5 hours exam duration</td>
-                </tr>
               </tbody>
             </table>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Recommended 5-Month MDCAT Study Plan</h2>
-          <p className="text-gray-600 mb-8">Following a structured study plan is the key difference between high scorers and average performers. Use this 5-month roadmap as a guide — adjust it to fit your own starting point and target score.</p>
-          <div className="space-y-6">
-            {studyPlan.map((phase, i) => (
-              <div key={i} className="bg-white rounded-xl shadow p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">{phase.phase}</span>
-                  <h3 className="text-lg font-semibold text-gray-800">{phase.title}</h3>
-                </div>
-                <ul className="space-y-2">
-                  {phase.tasks.map((task, j) => (
-                    <li key={j} className="flex items-start gap-2 text-gray-600 text-sm">
-                      <span className="text-blue-500 mt-0.5">✓</span>
-                      {task}
-                    </li>
-                  ))}
-                </ul>
+      {/* Resources */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Free MDCAT Resources</h2>
+        <p className="text-gray-600 mb-10">Access all these free preparation resources — no payment or registration required.</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {resources.map((r, i) => (
+            <Link key={i} href={r.link} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition group">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 transition">{r.title}</h3>
+                <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full flex-shrink-0 ml-2">{r.type}</span>
               </div>
-            ))}
-          </div>
-        </section>
+              <p className="text-gray-600 text-sm leading-relaxed">{r.desc}</p>
+              <p className="text-red-600 text-sm mt-3 font-semibold">Access Free →</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-        <section className="mb-16 bg-blue-50 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions – MDCAT</h2>
-          <div className="space-y-4">
+      {/* Quick Tips */}
+      <section className="bg-red-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Top MDCAT Tips from High Scorers</h2>
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              { q: "What is the minimum MDCAT score required for public medical colleges?", a: "As per PMC regulations, students must score at least 65% in MDCAT to be eligible for MBBS/BDS programs at public medical colleges. For private colleges, the minimum score may vary but is generally 55–60%." },
-              { q: "How many times can I appear in MDCAT?", a: "There is no restriction on the number of MDCAT attempts. You can appear every year until you secure a seat in a medical college. However, note that each year's score is only valid for that admission cycle." },
-              { q: "Is MDCAT compulsory for private medical colleges too?", a: "Yes. As per PMC's policy, MDCAT is compulsory for admission to MBBS and BDS programs in both public and private medical colleges across Pakistan. No medical institution is exempt from this requirement." },
-              { q: "Can international students (overseas Pakistanis) apply through MDCAT?", a: "Overseas Pakistanis can apply through the Overseas Pakistani quota. They are generally required to take the MDCAT but may appear through designated centres abroad. Check PMC's official notifications for updated overseas applicant guidelines." },
-              { q: "What books should I use for MDCAT Biology preparation?", a: "The PMC-approved FSc Biology textbooks (Part 1 and Part 2) form the primary source. Supplementary materials include Dogar Brothers' MDCAT Biology guide and past-paper collections. Avoid using too many books — depth over breadth is the key." },
-            ].map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl p-5">
-                <h3 className="font-semibold text-gray-800 mb-2">{faq.q}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+              { tip: "Solve at least 300 MCQs daily in the last 2 months. Speed matters as much as knowledge." },
+              { tip: "Biology requires memorization — use active recall and spaced repetition flashcards." },
+              { tip: "Chemistry organic reactions must be understood mechanistically, not memorized blindly." },
+              { tip: "Physics MCQs often test conceptual understanding, not just numerical ability." },
+              { tip: "Negative marking is real. Skip questions you're genuinely unsure about — don't guess randomly." },
+              { tip: "Get 8 hours of sleep in the week before the exam. Fatigue destroys performance." },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-3 bg-white rounded-lg p-5 shadow-sm border border-red-200">
+                <span className="text-red-600 text-xl flex-shrink-0">💡</span>
+                <p className="text-gray-800 text-sm leading-relaxed">{item.tip}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Related Resources</h2>
-          <div className="flex flex-wrap gap-3">
-            {[{label:"PPSC Preparation",href:"/prep/ppsc"},{label:"Admissions",href:"/admissions"},{label:"Scholarships",href:"/scholarships"},{label:"FSc Books",href:"/books/inter"},{label:"Past Papers",href:"/past-papers"}].map(l => (
-              <Link key={l.href} href={l.href} className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition">{l.label}</Link>
-            ))}
-          </div>
-        </section>
-      </div>
-    </section>
+      <section className="bg-gradient-to-r from-red-700 to-rose-600 text-white py-14 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Read Our Full MDCAT Guide</h2>
+          <p className="text-red-100 mb-8">Get the complete 12-month study plan, subject-wise strategies, and expert tips in our detailed MDCAT preparation guide.</p>
+          <Link href="/guides/mdcat-preparation-guide" className="bg-white text-red-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Read Full Guide →</Link>
+        </div>
+      </section>
+    </div>
   );
 }

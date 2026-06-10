@@ -1,154 +1,116 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Latest Private Jobs in Pakistan 2025 – IT, Banking, Telecom & More | Taleem4u",
-  description:
-    "Find the latest private sector jobs in Pakistan 2025. IT, Banking, Telecom, Healthcare, Education, Engineering, and multinational company vacancies updated daily.",
-  alternates: { canonical: "https://www.taleem4u.com/jobs/private" },
+  title: "Private Sector Jobs in Pakistan 2024 | IT, Banking, Telecom | Taleem4u",
+  description: "Browse latest private sector jobs in Pakistan. Find openings in IT, banking, telecom, healthcare, education and more. Expert tips on applications and interviews.",
+  keywords: "private jobs pakistan, IT jobs, banking jobs, telecom jobs, private sector employment",
+  alternates: { canonical: "https://taleem4u.com/jobs/private" },
 };
 
 export default function PrivateJobs() {
-  const categories = [
-    { name: "IT & Software", slug: "it-software", vacancies: "200+", desc: "Web developers, mobile app developers, data scientists, DevOps engineers, and IT support roles at Pakistan's growing tech companies." },
-    { name: "Banking & Finance", slug: "banking", vacancies: "150+", desc: "Retail bankers, credit analysts, relationship managers, and finance officers at commercial and microfinance banks." },
-    { name: "Telecom Companies", slug: "telecom", vacancies: "80+", desc: "Network engineers, sales managers, customer support, and corporate roles at Jazz, Zong, Ufone, Telenor, and PTCL." },
-    { name: "Education (Schools & Universities)", slug: "education", vacancies: "300+", desc: "Subject teachers, lecturers, school principals, and academic coordinators at private schools, colleges, and universities." },
-    { name: "Healthcare & Hospitals", slug: "healthcare", vacancies: "120+", desc: "Doctors, nurses, paramedical staff, lab technicians, and hospital administration roles." },
-    { name: "Engineering & Construction", slug: "engineering", vacancies: "100+", desc: "Civil, mechanical, and electrical engineers plus project managers for infrastructure, energy, and construction projects." },
-    { name: "Marketing & Sales", slug: "marketing-sales", vacancies: "180+", desc: "Brand managers, digital marketers, sales executives, and business development officers at FMCG and retail companies." },
-    { name: "Call Centers & BPO", slug: "call-centers", vacancies: "250+", desc: "Customer service representatives, technical support agents, and team leaders for inbound and outbound call centers." },
-    { name: "E-commerce & Online Business", slug: "ecommerce", vacancies: "90+", desc: "Daraz, Foodpanda, Bykea, and other platform jobs including operations, logistics, and merchant support roles." },
-    { name: "Textile & Manufacturing", slug: "textile", vacancies: "160+", desc: "Production supervisors, quality assurance, export managers, and factory operations at Pakistan's textile sector." },
-    { name: "Logistics & Transport", slug: "logistics", vacancies: "70+", desc: "Logistics coordinators, supply chain managers, fleet supervisors, and warehouse staff at courier and freight companies." },
-    { name: "Multinational Companies (MNCs)", slug: "mncs", vacancies: "60+", desc: "Competitive positions at Unilever, Nestle, P&G, Shell, PepsiCo, Coca-Cola, and other multinationals operating in Pakistan." },
+  const sectors = [
+    { name: "Information Technology (IT)", icon: "💻", openings: "12,000+", avgSalary: "PKR 60,000–250,000", roles: ["Software Engineer", "Web Developer", "Data Analyst", "DevOps Engineer", "UI/UX Designer", "Cybersecurity Analyst"], growth: "High" },
+    { name: "Banking & Finance", icon: "🏦", openings: "5,000+", avgSalary: "PKR 40,000–150,000", roles: ["Branch Manager", "Relationship Officer", "Credit Analyst", "Teller", "Investment Banker", "Risk Analyst"], growth: "Moderate" },
+    { name: "Telecommunication", icon: "📡", openings: "3,500+", avgSalary: "PKR 45,000–180,000", roles: ["Network Engineer", "Sales Executive", "Technical Support", "RF Engineer", "Product Manager", "Customer Care"], growth: "High" },
+    { name: "Healthcare & Pharmaceuticals", icon: "🏥", openings: "4,000+", avgSalary: "PKR 35,000–120,000", roles: ["Doctor", "Nurse", "Pharmacist", "Medical Sales Rep", "Lab Technician", "Hospital Administrator"], growth: "High" },
+    { name: "Education & Training", icon: "🎓", openings: "6,000+", avgSalary: "PKR 25,000–80,000", roles: ["Teacher", "Lecturer", "Academic Coordinator", "Curriculum Designer", "Online Tutor", "School Principal"], growth: "Moderate" },
+    { name: "Marketing & Sales", icon: "📈", openings: "8,000+", avgSalary: "PKR 30,000–130,000", roles: ["Digital Marketer", "Sales Manager", "Brand Manager", "SEO Specialist", "Content Writer", "Social Media Manager"], growth: "High" },
+    { name: "Engineering & Manufacturing", icon: "⚙️", openings: "4,500+", avgSalary: "PKR 50,000–200,000", roles: ["Mechanical Engineer", "Electrical Engineer", "Civil Engineer", "QA Engineer", "Production Manager", "Safety Officer"], growth: "Moderate" },
+    { name: "Retail & FMCG", icon: "🛒", openings: "7,000+", avgSalary: "PKR 25,000–90,000", roles: ["Store Manager", "Merchandiser", "Supply Chain Analyst", "Area Sales Manager", "Category Manager", "Logistics Officer"], growth: "Moderate" },
   ];
 
-  const salaryGuide = [
-    { role: "Fresh Graduate (Any Field)", bps: "Entry Level", min: "PKR 30,000", max: "PKR 55,000", note: "Varies widely by industry; IT and banking start higher" },
-    { role: "Software Developer (2 yrs exp)", bps: "Mid-Level", min: "PKR 80,000", max: "PKR 200,000", note: "Remote freelance can earn significantly more in USD" },
-    { role: "Bank Officer / Relationship Manager", bps: "OG-III / OG-II", min: "PKR 60,000", max: "PKR 120,000", note: "Plus benefits: provident fund, medical, bonus" },
-    { role: "Sales Manager (FMCG)", bps: "Mid-Senior", min: "PKR 90,000", max: "PKR 180,000", note: "Often includes vehicle, fuel, and performance bonus" },
-    { role: "Senior Engineer (Civil/Mech)", bps: "Senior", min: "PKR 120,000", max: "PKR 300,000", note: "Higher in construction and energy projects" },
+  const topEmployers = [
+    "Systems Limited", "Netsol Technologies", "Jazz (Veon)", "Telenor Pakistan",
+    "HBL (Habib Bank Limited)", "UBL (United Bank Limited)", "MCB Bank", "Meezan Bank",
+    "Unilever Pakistan", "Nestle Pakistan", "Engro Corporation", "Lucky Cement",
+    "Shaukat Khanum Hospital", "Aga Khan Health Service", "Daraz Pakistan", "Foodpanda",
   ];
 
-  const latestJobs = [
-    { title: "Full Stack Developer (React/Node)", company: "Systems Limited", location: "Lahore / Remote", salary: "PKR 120,000–200,000", exp: "2+ years", posted: "1 day ago" },
-    { title: "Branch Operations Manager", company: "HBL Bank", location: "Karachi", salary: "PKR 90,000–140,000", exp: "3+ years", posted: "2 days ago" },
-    { title: "Digital Marketing Specialist", company: "Foodpanda Pakistan", location: "Islamabad", salary: "PKR 60,000–90,000", exp: "1–3 years", posted: "3 days ago" },
-    { title: "Quality Assurance Engineer", company: "Getz Pharma", location: "Karachi", salary: "PKR 70,000–110,000", exp: "2+ years", posted: "2 days ago" },
-    { title: "Regional Sales Manager", company: "Unilever Pakistan", location: "Multiple Cities", salary: "PKR 150,000–250,000", exp: "5+ years", posted: "4 days ago" },
-    { title: "Customer Support Representative", company: "TCS Pakistan", location: "Lahore", salary: "PKR 35,000–50,000", exp: "Fresh / 1 yr", posted: "1 day ago" },
+  const tips = [
+    { title: "Tailor Your CV for Each Role", body: "A generic CV gets ignored. Customize your CV for each application by highlighting the most relevant skills and experience. Use keywords from the job description." },
+    { title: "Build a Strong LinkedIn Profile", body: "Most Pakistani private sector recruiters actively search LinkedIn. Keep your profile 100% complete, with a professional photo, detailed work history, and relevant skills endorsed." },
+    { title: "Prepare for Behavioral Interviews", body: "Private companies ask behavioral questions like Tell me about a time you handled a conflict. Prepare 8-10 STAR-format stories covering teamwork, leadership, problem-solving, and failure." },
+    { title: "Research the Company", body: "Before any interview, research the company products, recent news, culture, and competitors. Showing knowledge of the business sets you apart from other candidates." },
+    { title: "Negotiate Your Salary", body: "Most offers have room to negotiate. Research market rates on Rozee.pk and LinkedIn Salary Insights. Negotiate confidently but professionally." },
+    { title: "Network Actively", body: "In Pakistan, 60-70% of jobs are filled through referrals. Attend industry events, reach out to professionals on LinkedIn, and inform your network that you are looking for opportunities." },
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      <nav className="text-sm mb-6 text-gray-600">
-        <Link href="/" className="hover:underline">Home</Link> &gt;{" "}
-        <Link href="/jobs" className="hover:underline">Jobs</Link> &gt;{" "}
-        <span className="font-semibold">Private Jobs</span>
-      </nav>
+    <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-r from-blue-700 to-indigo-600 text-white py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="text-sm text-blue-200 mb-4">
+            <Link href="/" className="hover:text-white">Home</Link> / <Link href="/jobs" className="hover:text-white">Jobs</Link> / <span>Private Jobs</span>
+          </nav>
+          <h1 className="text-5xl font-bold mb-4">Private Sector Jobs in Pakistan</h1>
+          <p className="text-blue-100 text-xl max-w-3xl">Explore thousands of job openings in Pakistan's thriving private sector — from tech giants to multinationals to fast-growing startups. Updated daily with verified listings.</p>
+          <div className="mt-8 flex gap-6 flex-wrap text-sm">
+            <span className="bg-white/20 px-4 py-2 rounded-full">12,000+ IT Jobs</span>
+            <span className="bg-white/20 px-4 py-2 rounded-full">5,000+ Banking Jobs</span>
+            <span className="bg-white/20 px-4 py-2 rounded-full">Updated Daily</span>
+          </div>
+        </div>
+      </section>
 
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">Latest Private Jobs in Pakistan 2025</h1>
-        <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-          Explore thousands of private sector job opportunities across Pakistan's fastest-growing industries — 
-          from technology and banking to healthcare and education. Listings updated daily from verified employers.
-        </p>
-      </header>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Latest Private Job Listings</h2>
-        <div className="space-y-4">
-          {latestJobs.map((job, i) => (
-            <div key={i} className="bg-white rounded-xl shadow p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:shadow-md transition">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">{job.title}</h3>
-                <p className="text-gray-600 text-sm">{job.company} &bull; {job.location}</p>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  <span className="bg-purple-50 text-purple-700 text-xs px-2 py-0.5 rounded-full">{job.salary}</span>
-                  <span className="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Exp: {job.exp}</span>
-                  <span className="bg-blue-50 text-blue-700 text-xs px-2 py-0.5 rounded-full">Posted: {job.posted}</span>
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Browse Jobs by Industry</h2>
+        <p className="text-gray-600 mb-10">Pakistan's private sector spans diverse industries. Find the one that matches your qualification and interests.</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {sectors.map((s, i) => (
+            <div key={i} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">{s.icon}</span>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">{s.name}</h3>
+                  <div className="flex gap-3 text-xs mt-1">
+                    <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">{s.openings} openings</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Growth: {s.growth}</span>
+                  </div>
                 </div>
               </div>
-              <a href="#" className="flex-shrink-0 bg-purple-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition">Apply Now</a>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Browse by Industry</h2>
-        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-          {categories.map((cat) => (
-            <Link key={cat.slug} href={`/jobs/private/${cat.slug}`}
-              className="bg-white shadow rounded-xl p-5 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <h2 className="text-base font-semibold text-gray-800 flex-1 leading-tight">{cat.name}</h2>
-                <span className="flex-shrink-0 ml-2 bg-purple-50 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">{cat.vacancies}</span>
+              <p className="text-sm text-gray-600 mb-3"><span className="font-semibold">Avg Salary:</span> {s.avgSalary}/month</p>
+              <div className="flex flex-wrap gap-2">
+                {s.roles.map((r) => (
+                  <span key={r} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">{r}</span>
+                ))}
               </div>
-              <p className="text-sm text-gray-500 flex-1 leading-relaxed">{cat.desc}</p>
-              <span className="mt-3 text-purple-600 text-sm font-medium">View Jobs →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12 bg-white rounded-2xl shadow p-8 overflow-x-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Private Sector Salary Guide – Pakistan 2025</h2>
-        <p className="text-gray-600 mb-6 text-sm">Salary ranges vary significantly by city (Karachi/Lahore tend to pay more), company size, and candidate experience. The figures below are approximate market ranges for reference.</p>
-        <table className="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
-          <thead className="bg-purple-700 text-white">
-            <tr>
-              <th className="text-left p-4">Role</th>
-              <th className="text-left p-4">Level</th>
-              <th className="text-left p-4">Min Salary</th>
-              <th className="text-left p-4">Max Salary</th>
-              <th className="text-left p-4 hidden md:table-cell">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            {salaryGuide.map((row, i) => (
-              <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                <td className="p-4 font-medium text-gray-800">{row.role}</td>
-                <td className="p-4 text-gray-600">{row.bps}</td>
-                <td className="p-4 text-green-600 font-semibold">{row.min}</td>
-                <td className="p-4 text-green-700 font-bold">{row.max}</td>
-                <td className="p-4 text-gray-500 text-xs hidden md:table-cell">{row.note}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
-
-      <section className="mb-12 bg-purple-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">How to Stand Out When Applying for Private Jobs</h2>
-        <div className="space-y-4">
-          {[
-            { title: "Tailor Your CV to Each Job", desc: "A generic CV rarely gets shortlisted. Read the job description carefully and customise your CV summary and skills section to match. Use keywords from the job posting — many companies use ATS (Applicant Tracking Systems) that filter CVs by keyword." },
-            { title: "Build Practical Skills Alongside Your Degree", desc: "For IT, digital marketing, accounting, and graphic design roles, employers value demonstrable skills over degrees. Build a portfolio, earn certifications (Google, HubSpot, AWS, ACCA), and work on freelance or open-source projects to show what you can do." },
-            { title: "Network Actively", desc: "In Pakistan's job market, referrals carry enormous weight. Attend industry events, connect with professionals on LinkedIn, and let your college alumni network know you are job hunting. Many positions are filled through referrals before they are advertised publicly." },
-            { title: "Prepare for Structured Interviews", desc: "MNCs and large private companies use competency-based interviews. Prepare STAR-format answers (Situation, Task, Action, Result) for common questions like 'Tell me about a time you solved a difficult problem' or 'Describe a situation where you led a team'." },
-          ].map((tip, i) => (
-            <div key={i} className="bg-white rounded-xl p-5">
-              <h3 className="font-semibold text-gray-800 mb-1">{tip.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{tip.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section>
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Related Resources</h2>
-        <div className="flex flex-wrap gap-3">
-          {[
-            { label: "Government Jobs", href: "/jobs/government" },
-            { label: "Internships", href: "/jobs/internships" },
-            { label: "Jobs Abroad", href: "/jobs/abroad" },
-            { label: "Scholarships", href: "/scholarships" },
-            { label: "Admissions", href: "/admissions" },
-          ].map(l => (
-            <Link key={l.href} href={l.href} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-50 hover:text-purple-700 transition">{l.label}</Link>
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Top Private Employers in Pakistan</h2>
+          <p className="text-gray-600 mb-8">These organizations consistently hire talented professionals across multiple disciplines.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {topEmployers.map((emp, i) => (
+              <div key={i} className="bg-white rounded-lg p-4 text-center font-semibold text-gray-800 shadow-sm border border-gray-200 hover:shadow-md transition text-sm">{emp}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-10">How to Land a Private Sector Job</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {tips.map((tip, i) => (
+            <div key={i} className="bg-white border-l-4 border-blue-600 rounded-lg p-6 shadow-sm">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{tip.title}</h3>
+              <p className="text-gray-700 leading-relaxed text-sm">{tip.body}</p>
+            </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-r from-blue-700 to-indigo-600 text-white py-14 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Also Explore Government Jobs</h2>
+          <p className="text-blue-100 mb-8">Looking for job security and pension benefits? Government jobs offer stability and career growth.</p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link href="/jobs/government" className="bg-white text-blue-700 px-7 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Government Jobs</Link>
+            <Link href="/jobs/internships" className="border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-700 transition">Internships</Link>
+          </div>
         </div>
       </section>
     </div>

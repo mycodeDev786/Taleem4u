@@ -1,35 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import Hero from "./components/hero";
 import LatestSection from "./components/LatestSection";
 import BooksSection from "./components/BooksSection";
 
 export const metadata = {
-  title: "Taleem4u – Pakistan's Free Education & Career Portal | Books, Jobs, Scholarships",
+  title: "Taleem4u - Pakistan's Education & Career Hub | Free Study Materials & Jobs",
   description:
-    "Pakistan's leading free education portal. Download textbooks, past papers, find jobs, scholarships, university admissions, and MDCAT/PPSC preparation — all in one place.",
+    "Access free PDF books, study notes, past papers, job listings, scholarships, and admissions guidance. Everything a Pakistani student needs for academic and career success.",
+  keywords:
+    "Pakistani education, study materials, books, notes, jobs, scholarships, admissions, Pakistan education portal",
 };
-
-const quickStats = [
-  { value: "50,000+", label: "Monthly Users" },
-  { value: "5,000+", label: "Study Resources" },
-  { value: "500+", label: "Active Job Listings" },
-  { value: "100+", label: "Scholarships Listed" },
-];
-
-const featuredCategories = [
-  { title: "Matric Books", href: "/books/matric", icon: "📗", desc: "Free PCTB textbooks for 9th & 10th class" },
-  { title: "FSc Books", href: "/books/inter", icon: "📘", desc: "Intermediate Part 1 & 2 PDF books" },
-  { title: "MDCAT Prep", href: "/prep/mdcat", icon: "🏥", desc: "Books, notes, past papers & mock tests" },
-  { title: "PPSC Prep", href: "/prep/ppsc", icon: "📝", desc: "Patwari, SI, ASI & all posts" },
-  { title: "Past Papers", href: "/past-papers", icon: "📋", desc: "Matric, Inter, CSS, PPSC, NTS" },
-  { title: "Scholarships", href: "/scholarships", icon: "🎓", desc: "HEC, Fulbright, Chevening, PEEF & more" },
-];
-
-const latestBlogPosts = [
-  { title: "How to Get the HEC Overseas Scholarship: A Step-by-Step Guide", category: "Scholarships", href: "/blog/how-to-get-hec-overseas-scholarship", date: "Jan 10, 2025" },
-  { title: "Top 10 MDCAT Preparation Tips to Score Above 180 in 2025", category: "Exam Prep", href: "/blog", date: "Dec 28, 2024" },
-  { title: "Government Jobs vs Private Sector in Pakistan: Which is Right for You?", category: "Career Guide", href: "/blog", date: "Dec 15, 2024" },
-];
 
 export default function Home() {
   return (
@@ -38,75 +19,184 @@ export default function Home() {
       <LatestSection />
       <BooksSection />
 
-      {/* Quick Stats */}
-      <section className="bg-emerald-700 py-12">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-white text-2xl font-bold text-center mb-8">Trusted by Pakistani Students & Professionals</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {quickStats.map((s, i) => (
-              <div key={i} className="text-center">
-                <p className="text-4xl font-extrabold text-yellow-300">{s.value}</p>
-                <p className="text-emerald-100 mt-1 text-sm">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Categories */}
+      {/* Features Section */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-2">Everything a Pakistani Student Needs</h2>
-          <p className="text-gray-500 text-center mb-10">From textbooks to test prep — free, verified, and up to date</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {featuredCategories.map((cat, i) => (
-              <Link key={i} href={cat.href} className="bg-white rounded-2xl shadow p-6 flex gap-4 items-start hover:shadow-lg hover:-translate-y-1 transition-all">
-                <span className="text-4xl flex-shrink-0">{cat.icon}</span>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">{cat.title}</h3>
-                  <p className="text-gray-500 text-sm">{cat.desc}</p>
-                </div>
-              </Link>
-            ))}
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            Why Choose Taleem4u?
+          </h2>
+          <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            Your one-stop platform for education, career guidance, and professional
+            development.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="text-5xl mb-4">📚</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Complete Study Materials
+              </h3>
+              <p className="text-gray-700">
+                Access thousands of free PDF books, detailed notes, and past papers
+                for all educational levels.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="text-5xl mb-4">💼</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Job Opportunities
+              </h3>
+              <p className="text-gray-700">
+                Browse and apply for government jobs, private sector positions,
+                internships, and overseas opportunities.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="text-5xl mb-4">🎓</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Scholarships & Admissions
+              </h3>
+              <p className="text-gray-700">
+                Discover 100+ scholarships and get expert guidance on university
+                admissions and career pathways.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Latest Blog Posts */}
+      {/* Quick Links Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Latest from Our Blog</h2>
-            <Link href="/blog" className="text-emerald-600 font-medium hover:underline text-sm">View All →</Link>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {latestBlogPosts.map((post, i) => (
-              <Link key={i} href={post.href} className="bg-gray-50 rounded-xl p-6 hover:bg-emerald-50 transition group block">
-                <span className="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded-full">{post.category}</span>
-                <h3 className="font-bold text-gray-800 mt-3 mb-2 leading-snug group-hover:text-emerald-700 transition">{post.title}</h3>
-                <p className="text-gray-400 text-xs">{post.date}</p>
-              </Link>
-            ))}
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            Quick Navigation
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link
+              href="/books"
+              className="p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg border border-emerald-200 hover:shadow-lg transition"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                📖 Books & Notes
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Download free study materials for all classes
+              </p>
+            </Link>
+
+            <Link
+              href="/jobs"
+              className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-lg transition"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                💼 Jobs Portal
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Latest job listings and career opportunities
+              </p>
+            </Link>
+
+            <Link
+              href="/scholarships"
+              className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border border-purple-200 hover:shadow-lg transition"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                🎓 Scholarships
+              </h3>
+              <p className="text-gray-700 text-sm">
+                100+ scholarship opportunities worldwide
+              </p>
+            </Link>
+
+            <Link
+              href="/guides"
+              className="p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-lg border border-orange-200 hover:shadow-lg transition"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                ✍️ Study Guides
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Expert guides for exams and career preparation
+              </p>
+            </Link>
+
+            <Link
+              href="/past-papers"
+              className="p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg border border-cyan-200 hover:shadow-lg transition"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                📄 Past Papers
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Practice with previous year question papers
+              </p>
+            </Link>
+
+            <Link
+              href="/about"
+              className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200 hover:shadow-lg transition"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                ℹ️ About Us
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Learn more about Taleem4u's mission
+              </p>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+      {/* Statistics Section */}
+      <section className="py-16 bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold mb-2">10K+</div>
+              <p>Study Materials</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">500+</div>
+              <p>Job Listings</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">100+</div>
+              <p>Scholarships</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">50K+</div>
+              <p>Active Students</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">About Taleem4u</h2>
-          <p className="text-gray-300 text-lg leading-relaxed mb-6">
-            Taleem4u was built with one goal: to give every Pakistani student — from Karachi to Gilgit — free access 
-            to the study materials, career guidance, and educational opportunities they deserve. We aggregate textbooks, 
-            past papers, scholarship listings, university admission news, and job opportunities in a single, easy-to-use platform.
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Get Started Today
+          </h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Join thousands of Pakistani students who are using Taleem4u to ace
+            their exams and advance their careers. Everything is completely free!
           </p>
-          <p className="text-gray-400 mb-8">
-            Whether you are preparing for Matric board exams, studying for MDCAT, looking for your first government job, 
-            or seeking a fully funded international scholarship — Taleem4u is your trusted companion throughout the journey.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/about" className="bg-emerald-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-600 transition">Learn More About Us</Link>
-            <Link href="/contact" className="border border-gray-500 text-gray-200 px-6 py-3 rounded-full font-semibold hover:border-emerald-400 hover:text-emerald-400 transition">Contact Us</Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/books"
+              className="bg-emerald-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
+            >
+              Explore Materials
+            </Link>
+            <Link
+              href="/guides"
+              className="bg-gray-200 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-300 transition"
+            >
+              Read Guides
+            </Link>
           </div>
         </div>
       </section>

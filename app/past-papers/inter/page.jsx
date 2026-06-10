@@ -1,91 +1,132 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Intermediate Past Papers (FSc, FA, ICS, ICom) – All Boards Pakistan | Taleem4u",
+  title: "Intermediate Past Papers 2015–2023 | FSc Pre-Medical, Pre-Engineering, FA, ICS | Taleem4u",
   description:
-    "Download free Intermediate past papers for 11th and 12th class. FSc Pre-Medical, Pre-Engineering, ICS, FA, ICom subjects from all major Punjab, Sindh, and Federal Boards.",
-  alternates: { canonical: "https://www.taleem4u.com/past-papers/inter" },
+    "Free Intermediate past papers for FSc Pre-Medical, Pre-Engineering, FA, ICS, I.Com. All subjects, all BISE boards, 2015–2023. Download PDFs with answer keys.",
+  keywords: "intermediate past papers, FSc past papers, FA past papers, ICS past papers, 11th 12th class papers",
+  alternates: { canonical: "https://taleem4u.com/past-papers/inter" },
 };
 
 export default function InterPastPapers() {
   const groups = [
     {
       name: "FSc Pre-Medical",
-      subjects: ["Biology", "Chemistry", "Physics", "English", "Urdu"],
       color: "emerald",
+      desc: "For students aspiring to enter medical or biological sciences. Prepare for MDCAT with these papers.",
+      subjects: ["Biology", "Chemistry", "Physics", "English (Compulsory)", "Urdu (Compulsory)", "Islamiyat", "Pakistan Studies"],
     },
     {
       name: "FSc Pre-Engineering",
-      subjects: ["Mathematics", "Chemistry", "Physics", "English", "Urdu"],
       color: "blue",
+      desc: "Ideal for students targeting engineering universities. Aligned with ECAT and NET preparation.",
+      subjects: ["Mathematics", "Chemistry", "Physics", "English (Compulsory)", "Urdu (Compulsory)", "Islamiyat", "Pakistan Studies"],
     },
     {
-      name: "ICS (Computer Science)",
-      subjects: ["Computer Science", "Mathematics", "Physics / Statistics", "English"],
+      name: "FA (Faculty of Arts)",
       color: "purple",
+      desc: "For humanities and arts students. Includes language, social science, and elective subjects.",
+      subjects: ["Urdu", "English", "Civics", "Education", "History", "Economics", "Islamic Studies", "Psychology"],
     },
     {
-      name: "FA / ICom",
-      subjects: ["Economics", "Accounting", "Business Maths", "English", "Urdu", "Civics"],
-      color: "orange",
+      name: "ICS (Intermediate in Computer Science)",
+      color: "indigo",
+      desc: "For students pursuing computer science and related technology fields.",
+      subjects: ["Computer Science", "Mathematics", "Physics", "Statistics", "English", "Urdu"],
+    },
+    {
+      name: "I.Com (Intermediate in Commerce)",
+      color: "amber",
+      desc: "Business and commerce stream. Ideal for students aiming for BBA, CA, ACCA, or commerce degrees.",
+      subjects: ["Commerce", "Economics", "Accounting", "Business Mathematics", "English", "Urdu", "Banking"],
     },
   ];
 
-  const subjects = [
-    { name: "Physics", slug: "physics", desc: "All chapters from Part 1 and Part 2. MCQs, numerical problems, and short/long questions from board papers 2014–2024." },
-    { name: "Chemistry", slug: "chemistry", desc: "Organic, inorganic, and physical chemistry. Solved past papers with worked calculations for Part 1 and Part 2." },
-    { name: "Mathematics", slug: "mathematics", desc: "Calculus, vectors, algebra, and statistics. Detailed step-by-step solutions for all board paper questions." },
-    { name: "Biology", slug: "biology", desc: "Cell biology, genetics, physiology, and ecology questions from Intermediate annual and supplementary exams." },
-    { name: "Computer Science", slug: "computer-science", desc: "Programming, data structures, database, and networking MCQs and theory questions for ICS students." },
-    { name: "English", slug: "english", desc: "Essays, letters, story writing, precis, comprehension, and grammar questions from major Pakistani boards." },
-    { name: "Economics", slug: "economics", desc: "Microeconomics, macroeconomics, national income, and trade theory questions for FA/ICom students." },
-    { name: "Accounting", slug: "accounting", desc: "Bookkeeping, financial statements, partnership accounts, and company accounts past papers for ICom." },
-  ];
+  const importantTopics = {
+    "FSc Pre-Medical": ["Cell Biology & Genetics", "Organic Chemistry Reactions", "Newton's Laws & Waves", "Plant Kingdom & Ecology"],
+    "FSc Pre-Engineering": ["Integration & Differentiation", "Organic Chemistry", "Circular Motion & Waves", "Algebra & Complex Numbers"],
+  };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="text-sm mb-6 text-gray-600">
-        <Link href="/" className="hover:underline">Home</Link> &gt;{" "}
-        <Link href="/past-papers" className="hover:underline">Past Papers</Link> &gt;{" "}
-        <span className="font-semibold">Intermediate</span>
-      </nav>
+    <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-r from-emerald-700 to-teal-800 text-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="text-sm text-emerald-300 mb-4">
+            <Link href="/">Home</Link> / <Link href="/past-papers">Past Papers</Link> / <span>Intermediate</span>
+          </nav>
+          <h1 className="text-4xl font-bold mb-3">Intermediate Past Papers — 11th & 12th</h1>
+          <p className="text-emerald-100 text-lg max-w-3xl">Free FSc, FA, ICS, and I.Com past papers from all BISE boards. Download PDFs for 2015–2023 with answer keys.</p>
+        </div>
+      </section>
 
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">Intermediate Past Papers (11th & 12th Class)</h1>
-        <p className="text-gray-600 text-lg max-w-3xl">
-          Download past papers for FSc Part 1 and Part 2, FA, ICS, and ICom from all major Pakistani boards. 
-          Papers are available for both annual and supplementary examinations from 2014 to 2024.
-        </p>
-      </header>
+      <div className="bg-emerald-50 border-b border-emerald-200">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex flex-wrap gap-6 text-sm text-emerald-800">
+          <span>📚 <strong>Classes:</strong> 11th & 12th</span>
+          <span>🎓 <strong>Groups:</strong> FSc, FA, ICS, I.Com</span>
+          <span>🏫 <strong>Boards:</strong> All BISE</span>
+          <span>📅 <strong>Years:</strong> 2015–2023</span>
+          <span>💰 <strong>Cost:</strong> Free</span>
+        </div>
+      </div>
 
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Browse by Subject</h2>
-        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-          {subjects.map((subject) => (
-            <Link key={subject.slug} href={`/past-papers/inter/${subject.slug}`}
-              className="bg-white rounded-xl shadow p-6 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">{subject.name}</h2>
-              <p className="text-gray-500 text-sm flex-1 mb-4 leading-relaxed">{subject.desc}</p>
-              <span className="text-blue-600 text-sm font-medium">Download Papers →</span>
-            </Link>
+      <section className="max-w-6xl mx-auto px-4 py-14">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Browse by Study Group</h2>
+        <p className="text-gray-600 mb-10">Select your Intermediate group to find subject-specific past papers for Part I (11th) and Part II (12th).</p>
+        <div className="space-y-6">
+          {groups.map((g, i) => (
+            <div key={i} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{g.name}</h3>
+              <p className="text-gray-600 mb-4 text-sm">{g.desc}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {g.subjects.map((s) => (
+                  <span key={s} className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full hover:bg-emerald-100 hover:text-emerald-700 cursor-pointer transition">{s}</span>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <button className="text-sm bg-emerald-700 text-white px-5 py-2 rounded-lg hover:bg-emerald-800 transition">Part I (11th) Papers</button>
+                <button className="text-sm bg-teal-700 text-white px-5 py-2 rounded-lg hover:bg-teal-800 transition">Part II (12th) Papers</button>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="mb-12 bg-white rounded-2xl shadow p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Papers Available by Group</h2>
-        <p className="text-gray-600 mb-6 text-sm">
-          Intermediate in Pakistan is offered across four main groups. Select the group matching your stream to find relevant subject papers.
-        </p>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {groups.map((g, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl p-5">
-              <h3 className="font-bold text-gray-800 mb-3">{g.name}</h3>
-              <ul className="space-y-1">
-                {g.subjects.map((s, j) => (
-                  <li key={j} className="text-sm text-gray-600 flex items-center gap-2">
-                    <span className="text-emerald-500">✓</span>{s}
-                  </li>
+      {/* Frequently Tested Topics */}
+      <section className="bg-gray-50 py-14">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Tested Topics (from Past Papers Analysis)</h2>
+          <p className="text-gray-600 mb-8">After analyzing 10 years of past papers, these are the topics that appear almost every year:</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {Object.entries(importantTopics).map(([group, topics]) => (
+              <div key={group} className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">{group}</h3>
+                <ul className="space-y-2">
+                  {topics.map((t) => (
+                    <li key={t} className="flex items-center gap-2 text-gray-700 text-sm">
+                      <span className="text-emerald-600 font-bold">★</span> {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Study Strategy */}
+      <section className="max-w-6xl mx-auto px-4 py-14">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Intermediate Exam Strategy Using Past Papers</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { title: "3 Months Before Exams", items: ["Solve one past paper per subject per week", "Identify weak chapters from wrong answers", "Focus on completing the syllabus"] },
+            { title: "1 Month Before Exams", items: ["Solve daily past papers under timed conditions", "Revise high-frequency topics daily", "Practice long question writing speed"] },
+            { title: "1 Week Before Exams", items: ["Revise all formulas, definitions, diagrams", "Solve only short questions from past papers", "Review marking schemes for ideal answers"] },
+          ].map((phase, i) => (
+            <div key={i} className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
+              <h3 className="font-bold text-gray-900 mb-4 text-lg">{phase.title}</h3>
+              <ul className="space-y-2">
+                {phase.items.map((item) => (
+                  <li key={item} className="text-gray-700 text-sm flex gap-2"><span className="text-emerald-600">✓</span>{item}</li>
                 ))}
               </ul>
             </div>
@@ -93,35 +134,14 @@ export default function InterPastPapers() {
         </div>
       </section>
 
-      <section className="mb-12 bg-blue-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Tips for FSc Board Exam Preparation</h2>
-        <div className="space-y-4">
-          {[
-            { tip: "Prioritise past paper MCQs for short-question preparation", detail: "FSc board exams typically have 20–30 MCQs in Part A. Repeated MCQs from past papers make up 40–60% of every paper. Compile these into a subject-wise list and memorise them two weeks before exams." },
-            { tip: "Master numerical problems with full working", detail: "In Physics and Chemistry, marks for numerical questions are awarded for showing correct method and units, not just the final answer. Practice writing full working for all formula-based questions." },
-            { tip: "Use both Part 1 and Part 2 past papers for supplementary prep", detail: "If you are appearing as a private candidate or for supplementary exams, note that some boards reuse questions across years. Solving 10 years of papers is highly recommended." },
-            { tip: "Understand the marking scheme before writing long answers", detail: "Long questions in FSc are marked per point. Review the official marking keys provided by boards to understand exactly what examiners expect for full marks." },
-          ].map((item, i) => (
-            <div key={i} className="bg-white rounded-xl p-5">
-              <h3 className="font-semibold text-gray-800 mb-1">{item.tip}</h3>
-              <p className="text-gray-600 text-sm">{item.detail}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Related Resources</h2>
-        <div className="flex flex-wrap gap-3">
-          {[
-            { label: "Intermediate Books", href: "/books/inter" },
-            { label: "Matric Past Papers", href: "/past-papers/matric" },
-            { label: "CSS Past Papers", href: "/past-papers/css" },
-            { label: "MDCAT Prep", href: "/prep/mdcat" },
-            { label: "Scholarships", href: "/scholarships" },
-          ].map(l => (
-            <Link key={l.href} href={l.href} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 hover:text-blue-700 transition">{l.label}</Link>
-          ))}
+      <section className="bg-gradient-to-r from-emerald-700 to-teal-800 text-white py-14 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Preparing for MDCAT or Engineering Entry Tests?</h2>
+          <p className="text-emerald-100 mb-8">Get specialized preparation material beyond past papers — including guides, notes, and practice tests.</p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link href="/prep/mdcat" className="bg-white text-emerald-700 px-7 py-3 rounded-full font-semibold hover:bg-gray-100 transition">MDCAT Prep</Link>
+            <Link href="/guides" className="border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white hover:text-emerald-700 transition">Study Guides</Link>
+          </div>
         </div>
       </section>
     </div>

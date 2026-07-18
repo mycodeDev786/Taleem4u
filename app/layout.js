@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 // You can find it in your AdSense account under
 //   Account  →  Account information  →  Publisher ID
 // ─────────────────────────────────────────────────────────────────────────────
-const ADSENSE_PUBLISHER_ID = "ca-pub-6379961667392249"; // <-- REPLACE THIS
+const ADSENSE_PUBLISHER_ID = "ca-pub-XXXXXXXXXXXXXXXX"; // <-- REPLACE THIS
 
 export const metadata = {
   title: "Taleem4u - Pakistan's Education & Career Hub",
@@ -46,8 +46,12 @@ export default function RootLayout({ children }) {
           automatic ad placement once AdSense approves your site.
           Replace XXXXXXXXXXXXXXXX with your real Publisher ID.
         */}
-       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379961667392249"
-     crossorigin="anonymous"></script>
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

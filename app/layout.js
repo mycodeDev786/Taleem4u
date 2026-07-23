@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 // You can find it in your AdSense account under
 //   Account  →  Account information  →  Publisher ID
 // ─────────────────────────────────────────────────────────────────────────────
-const ADSENSE_PUBLISHER_ID = "ca-pub-XXXXXXXXXXXXXXXX"; // <-- REPLACE THIS
+const ADSENSE_PUBLISHER_ID = "ca-pub-6379961667392249"; // <-- REPLACE THIS
 
 export const metadata = {
   title: "Taleem4u - Pakistan's Education & Career Hub",

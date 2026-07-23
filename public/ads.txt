@@ -7,4 +7,4 @@
 #  Your Publisher ID is in AdSense → Account → Account information
 # ============================================================
 
-google.com, ca-pub-6379961667392249, DIRECT, f08c47fec0942fa0
+google.com, pub-6379961667392249, DIRECT, f08c47fec0942fa0

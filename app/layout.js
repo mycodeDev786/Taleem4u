@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <WhatsappButton
-          phone="92343710"
+          phone="+923437109116"
           message="Hi! I need help with admissions."
         />
         <Footer />

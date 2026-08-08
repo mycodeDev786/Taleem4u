@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
         {children}
         <WhatsappButton
           phone="+923437109116"
-          message="Hi! I need help with admissions."
+          message="Hi! How can we help you. Download Matric books and Matric notes from our store https://play.google.com/store/apps/dev?id=5621009353621989415&hl=en."
         />
         <Footer />
       </body>
